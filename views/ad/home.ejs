@@ -1,0 +1,124 @@
+<%- partial ('../layout/header.ejs') %>
+<div class="row hidden-xs">
+  <div class="bg-digital bg-video" id="bg-video">
+    <img src="/img/trouver-le-compagnon-de-votre-vie.png" alt="Trouvez le compagnon de votre vie" class="findourcompagnon"/>
+  </div>
+</div>
+<div class="container home-container">
+  <div class="bloc-accueil">
+    <form>
+      <p class="txt-search">Vous cherchez</p>
+      <label class="label">
+        <select id="type" name="type" class="field-select">
+            <option value="all">Tous</option>
+            <option value="chiens">Chiens</option>
+            <option value="chats">Chats</option>
+            <option value="rongeurs">Rongeurs</option>
+            <!-- <option value="oiseaux">Oiseaux</option>
+            <option value="Reptiles">Reptiles</option>-->
+        </select>
+      </label>
+      <label class="label">
+        <select id="localisation" name="localisation" class="field-select">
+          <option value="0">Toute la France</option>
+          <option value="1">Auvergne-Rhône-Alpes</option>
+          <option value="2">Bourgogne Franche-Comté</option>
+          <option value="3">Bretagne</option>
+          <option value="4">Centre-Val de Loire</option>
+          <option value="5">Corse</option>
+          <option value="6">Grand-Est</option>
+          <option value="7">Hauts-de-France</option>
+          <option value="8">Île-de-France</option>
+          <option value="9">Provence-Alpes-Côte d'Azur</option>
+          <option value="10">Pays-de-la-Loire</option>
+          <option value="11">Normandie</option>
+          <option value="12">Nouvelle-Aquitaine</option>
+          <option value="13">Occitanie</option>
+        </select>
+      </label>
+      <a href="#" title="Déposer votre petite annonce" class="btn">Valider</a>
+    </form>
+  </div>
+</div>
+
+<div class="row bloc-home-push-annonce" id="beforemap">
+  <div class="container-fluid bg-bleu">
+    <div class="container bloc-depose-annonce">
+      <div class="row">
+        <div class="col-xs-12 col-sm-7">
+          <h2 class="mg-bottom-40 mg-top-40 txt-white ttl-push-annonce">Déposer votre annonce dès maintenant !</h2>
+        </div>
+        <div class="col-xs-12 col-sm-3 col-sm-offset-1 col-xs-offset-0">
+          <a href="/ajouter-une-annonce" title="Déposer votre annonce" class="btn btn-home-publish">publiez</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- partial ('../partial/bloc-gglmap.ejs') %>
+
+<div class="container">
+  <%- partial ('../partial/bloc-newsletter.ejs') %>
+  <div id="mes-favoris"></div>
+
+  <div class="allnews mg-bottom-60" data-type="all" data-page="<%- page %>" data-dep="all">
+    <div class="row">
+      <div class="col-xs-12">
+        <h2 class="mg-bottom-20 mg-top-40 ttl-h2">Les dernières annonces</h2>
+      </div>
+    </div>
+
+    <% var j = 0;
+    if (data.length) {
+      data.forEach(e => { j++;
+    if (j === 4) {
+      j = 0;
+    %>
+    <div class="row mg-bottom-20 hidden-xs">
+      <div class="col-sm-7 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+        <div data-format="long" class="load-pub"></div>
+      </div>
+    </div>
+    <% }
+      e.page = page; %>
+    <%- partial('../partial/bloc-long-annonce.ejs', {data: e}) %>
+    <% });
+    } %>
+  </div>
+</div>
+<%- partial('../partial/bloc-left-search.ejs', {type: 'all'}) %>
+<%- partial ('../layout/footer.ejs') %>
+<%- partial ('../popin/beta.ejs') %>
+
+<% var json = {
+  "@context": "http://schema.org",
+  "url": "https://www.babies-pets.fr",
+  "sameAs": [
+    "https://www.facebook.com/teamBabiesPets/"
+  ],
+  "name": "Babies-pets",
+  "alternateName": "Babies-pets, site d'annonces pour animaux",
+  "url": "https://www.babies-pets.fr",
+  "@type": "ItemList",
+  "itemListElement": [],
+  "url": 'https://www.babies-pets.fr/',
+};
+var k = 0;
+if (data.length) {
+  data.forEach(e => { k++;
+  json.itemListElement.push({
+    "@type": "ListItem",
+    "position": k,
+    "image": e.image,
+    "description": e.description,
+    "@id": 'https://www.babies-pets.fr' + e.url,
+    "name": e.title || '',
+    "url": 'https://www.babies-pets.fr' + e.url,
+  });
+});
+}
+%>
+<script type="application/ld+json">
+<%- JSON.stringify(json) %>
+</script>

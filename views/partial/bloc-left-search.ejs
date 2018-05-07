@@ -1,0 +1,160 @@
+<div class="bloc-left-search hidden-xs">
+  <a href="#" title="Modifiez vos critères de recherche" class="btn-more-search-sidebar sprite-before">votre recherche</a>
+    <% if (type === 'all') { %>
+  <form class="form-search action-search-all">
+    <div style="width: 270px; margin-left: -20px; display: block; position: relative; height: 125px;" class="txt-white">
+      <div class="col-xs-6">
+        <div class="label mg-bottom-0">
+          <p class="container-cgu-small mg-bottom-0">
+            <input name="chiens-search" id="chiens-search" required="required" class="input-cgu action-search-checkbx" type="checkbox" data-action="chiens" checked/>
+            <label class="bloc-cgu bloc-cgu-small" for="chiens-search"></label>
+            Chiens
+          </p>
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <div class="label mg-bottom-0">
+          <p class="container-cgu-small mg-bottom-0">
+            <input name="chats-search" id="chats-search" required="required" class="input-cgu action-search-checkbx" type="checkbox" data-action="chats" checked/>
+            <label class="bloc-cgu bloc-cgu-small" for="chats-search"></label>
+            Chats
+          </p>
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <label class="label mg-bottom-0 container-cgu-smal">
+            <input name="rongeurs-search" id="rongeurs-search" required="required" class="input-cgu action-search-checkbx" type="checkbox" data-action="rongeurs" checked/>
+            <label class="bloc-cgu bloc-cgu-small" for="rongeurs-search"></label>
+            Rongeurs
+        </label>
+      </div>
+      <div class="col-xs-6">
+        <label class="label mg-bottom-0">
+          <p class="container-cgu-small mg-bottom-0">
+            <input name="oiseaux-search" id="oiseaux-search" required="required" class="input-cgu action-search-checkbx" type="checkbox" data-action="oiseaux" checked/>
+            <label class="bloc-cgu bloc-cgu-small" for="oiseaux-search"></label>
+            Oiseaux
+          </p>
+        </label>
+      </div>
+      <div class="col-xs-6">
+        <label class="label mg-bottom-0">
+          <p class="container-cgu-small mg-bottom-0">
+            <input name="reptiles-search" id="reptiles-search" required="required" class="input-cgu action-search-checkbx" type="checkbox" data-action="reptiles-search" checked/>
+            <label class="bloc-cgu bloc-cgu-small" for="reptiles-search"></label>
+            Reptiles
+          </p>
+        </label>
+      </div>
+    </div>
+
+    <label class="label mg-bottom-0 mg-top-10">
+      <p class="container-cgu-small">Prix entre</p>
+      <p class="container-cgu-small pd-top-10"><input name="MinPrice" size="6" submitbutton="FilterAds" type="text" placeholder="0" class="field bloc-search action-search-input" data-action="min"/> et</p>
+      <p class="container-cgu-small"><input name="MaxPrice" id="MaxPrice" size="6" submitbutton="FilterAds" type="text" placeholder="5000" class="field bloc-search action-search-input" data-action="max"/> €</p>
+    </label>
+
+    <div style="width: 270px; margin-left: -20px; display: block; position: relative; height: 55px; margin-top: 8px" class="txt-white">
+      <div class="col-xs-12">
+        <label class="label mg-bottom-0">
+          <p class="container-cgu-small mg-bottom-0">
+            <input name="particulier-search" id="particulier-search" required="required" class="input-cgu action-search-checkbx" type="checkbox" data-action="particulier" checked/>
+            <label class="bloc-cgu bloc-cgu-small" for="particulier-search"></label>
+            Particulier
+          </p>
+        </label>
+      </div>
+      <div class="col-xs-12">
+        <label class="label mg-bottom-0">
+          <p class="container-cgu-small mg-bottom-0">
+            <input name="profressionnel-search" id="profressionnel-search" required="required" class="input-cgu action-search-checkbx" type="checkbox" data-action="profressionnel-search" checked/>
+            <label class="bloc-cgu bloc-cgu-small" for="profressionnel-search"></label>
+            Professionnel
+          </p>
+        </label>
+      </div>
+    </div>
+
+    <% } else if (type === 'chiens') { %>
+    <form class="form-search action-search-chiens">
+    <label class="label mg-top-10 mg-bottom-0">
+      <p class="container-cgu-small mg-bottom-0">
+        <input name="small" id="small" required="required" class="input-cgu action-search-checkbx" type="checkbox" data-action="small" checked/>
+        <label class="bloc-cgu bloc-cgu-small" for="small"></label>
+        Petites tailles (- de 7 kg)
+      </p>
+    </label>
+    <label class="label mg-bottom-0">
+      <p class="container-cgu-small mg-bottom-0">
+        <input name="medium" id="medium" required="required" class="input-cgu action-search-checkbx" type="checkbox" data-action="medium" checked/>
+        <label class="bloc-cgu bloc-cgu-small" for="medium"></label>
+        Taille moyenne (7 à 25 kg)
+      </p>
+    </label>
+    <label class="label mg-bottom-10">
+      <p class="container-cgu-small mg-bottom-0">
+        <input name="big" id="big" required="required" class="input-cgu action-search-checkbx" type="checkbox" data-action="big" checked/>
+        <label class="bloc-cgu bloc-cgu-small" for="big"></label>
+        Grandes tailles (+ de 25 kg)
+      </p>
+    </label>
+    <label class="label mg-bottom-0">
+      <p class="container-cgu-small">Prix entre</p>
+      <p class="container-cgu-small pd-top-10"><input name="MinPrice" size="6" submitbutton="FilterAds" type="text" placeholder="0" class="field bloc-search action-search-input" data-action="min"/> et</p>
+      <p class="container-cgu-small"><input name="MaxPrice" id="MaxPrice" size="6" submitbutton="FilterAds" type="text" placeholder="5000" class="field bloc-search action-search-input" data-action="max"/> €</p>
+    </label>
+
+    <div style="width: 270px; margin-left: -20px; display: block; position: relative; height: 55px; margin-top: 8px" class="txt-white">
+      <div class="col-xs-12">
+        <label class="label mg-bottom-0">
+          <p class="container-cgu-small mg-bottom-0">
+            <input name="particulier-search" id="particulier-search" required="required" class="input-cgu action-search-checkbx" type="checkbox" data-action="particulier" checked/>
+            <label class="bloc-cgu bloc-cgu-small" for="particulier-search"></label>
+            Particulier
+          </p>
+        </label>
+      </div>
+      <div class="col-xs-12">
+        <label class="label mg-bottom-0">
+          <p class="container-cgu-small mg-bottom-0">
+            <input name="profressionnel-search" id="profressionnel-search" required="required" class="input-cgu action-search-checkbx" type="checkbox" data-action="profressionnel-search" checked/>
+            <label class="bloc-cgu bloc-cgu-small" for="profressionnel-search"></label>
+            Professionnel
+          </p>
+        </label>
+      </div>
+    </div>
+    <% } else if (type === 'chats' || type === 'reptiles' || type === 'oiseaux' || type === 'rongeurs') { %>
+    <form class="form-search action-search-chats">
+      <label class="label mg-bottom-0">
+        <p class="container-cgu-small">Prix entre</p>
+        <p class="container-cgu-small pd-top-10"><input name="MinPrice" size="6" submitbutton="FilterAds" type="text" placeholder="0" class="field bloc-search action-search-input" data-action="min"/> et</p>
+        <p class="container-cgu-small"><input name="MaxPrice" id="MaxPrice" size="6" submitbutton="FilterAds" type="text" placeholder="5000" class="field bloc-search action-search-input" data-action="max"/> €</p>
+      </label>
+
+      <div style="width: 270px; margin-left: -20px; display: block; position: relative; height: 55px; margin-top: 8px" class="txt-white">
+        <div class="col-xs-12">
+          <label class="label mg-bottom-0">
+            <p class="container-cgu-small mg-bottom-0">
+              <input name="particulier-search" id="particulier-search" required="required" class="input-cgu action-search-checkbx" type="checkbox" data-action="particulier" checked/>
+              <label class="bloc-cgu bloc-cgu-small" for="particulier-search"></label>
+              Particulier
+            </p>
+          </label>
+        </div>
+        <div class="col-xs-12">
+          <label class="label mg-bottom-0">
+            <p class="container-cgu-small mg-bottom-0">
+              <input name="profressionnel-search" id="profressionnel-search" required="required" class="input-cgu action-search-checkbx" type="checkbox" data-action="profressionnel-search" checked/>
+              <label class="bloc-cgu bloc-cgu-small" for="profressionnel-search"></label>
+              Professionnel
+            </p>
+          </label>
+        </div>
+      </div>
+      <% }  %>
+
+
+    <a href="#" title="Valider la recherche" class="btn txt-16 mg-left-50 mg-top-10">VALIDER</a>
+  </form>
+</div>

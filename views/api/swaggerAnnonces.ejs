@@ -1,0 +1,432 @@
+{
+"swagger": "2.0",
+"host": "www.babies-pets.fr",
+"basePath": "/api/",
+"schemes": [
+"https"
+],
+"paths": {
+"/annonces": {
+"get": {
+"tags": [
+"Gestion des annonces"
+],
+"summary": "Lister vos annonces du site babies-pets.fr",
+"description": "API qui vous permet de lister tous les annonces que vous avez créé sur le site babies-pets.fr",
+"operationId": "listAnnonce",
+"consumes": [
+"application/json"
+],
+"produces": [
+"application/json"
+],
+"parameters": [
+{
+"in": "query",
+"name": "login",
+"example": "elevage-du-chihuahua",
+"description": "votre login pour vous connecter à votre compte",
+"required": true
+},
+{
+"in": "query",
+"name": "key",
+"example": "99ezf56ez4f9ze4f9ze4fze5fze5fzefze8f",
+"description": "la clé pour vous connecter à votre compte",
+"required": true
+}
+],
+"responses": {
+"200": {
+"description": "Retourne la liste de vos annonces déjà créées",
+"schema": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/Annonces"
+}
+}
+},
+"206": {
+"description": "Retourne la liste de vos annonces déjà créées",
+"schema": {
+"type": "array",
+"items": {
+"$ref": "#/definitions/Annonces"
+}
+}
+},
+"401": {
+"description": "Token invalide"
+},
+"412": {
+"description": "Les paramètres transmis sont invalides"
+},
+"417": {
+"description": "Le token a expiré"
+}
+}
+}
+},
+"/annonce": {
+"post": {
+"tags": [
+"Gestion des annonces"
+],
+"summary": "Création d'une nouvelle annonce sur babies-pets.fr",
+"description": "API qui vous permet de soumettre une nouvelle annonce au site babies-pets.fr",
+"operationId": "nouvelleAnnonce",
+"consumes": [
+"application/json"
+],
+"produces": [
+"application/json"
+],
+"parameters": [
+{
+"in": "query",
+"name": "login",
+"example": "elevage-du-chihuahua",
+"description": "votre login pour vous connecter à votre compte",
+"required": true
+},
+{
+"in": "query",
+"name": "key",
+"example": "99ezf56ez4f9ze4f9ze4fze5fze5fzefze8f",
+"description": "la clé pour vous connecter à votre compte",
+"required": true
+},
+{
+"in": "body",
+"name": "body",
+"description": "L'annonce que vous venez de créer",
+"required": true,
+"schema": {
+"$ref": "#/definitions/Annonces"
+}
+}
+],
+"responses": {
+"201": {
+"description": "Retourne la liste de vos annonces déjà créées",
+"schema": {
+"type": "object",
+"$ref": "#/definitions/Annonces"
+}
+},
+"401": {
+"description": "Token invalide"
+},
+"412": {
+"description": "Les paramètres transmis sont invalides"
+},
+"417": {
+"description": "Le token a expiré"
+}
+}
+}
+},
+"/annonce/{id}": {
+"get": {
+"tags": [
+"Gestion des annonces"
+],
+"summary": "Récupération d'une annonce",
+"description": "API qui vous permet de récupérer les données d'une annonce que vous avez déjà créé sur le site babies-pets.fr",
+"operationId": "getAnnonceByID",
+"consumes": [
+"application/json"
+],
+"produces": [
+"application/json"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "ID de l'annonce à modifier",
+"required": true,
+"type": "string"
+},
+{
+"in": "query",
+"name": "login",
+"example": "elevage-du-chihuahua",
+"description": "votre login pour vous connecter à votre compte",
+"required": true
+},
+{
+"in": "query",
+"name": "key",
+"example": "99ezf56ez4f9ze4f9ze4fze5fze5fzefze8f",
+"description": "la clé pour vous connecter à votre compte",
+"required": true
+}
+],
+"responses": {
+"200": {
+"description": "Retourne la liste de vos annonces déjà créées",
+"schema": {
+"type": "object",
+"$ref": "#/definitions/Annonces"
+}
+},
+"404": {
+"description": "Identifiant d'annonce non trouvé"
+},
+"401": {
+"description": "Token invalide"
+},
+"412": {
+"description": "Les paramètres transmis sont invalides"
+},
+"417": {
+"description": "Le token a expiré"
+}
+}
+},
+"patch": {
+"tags": [
+"Gestion des annonces"
+],
+"summary": "Modification d'une annonce",
+"description": "API qui vous permet de modifier une annonce que vous avez créé sur le site babies-pets.fr",
+"operationId": "updateAnnonce",
+"consumes": [
+"application/json"
+],
+"produces": [
+"application/json"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "ID de l'annonce à modifier",
+"required": true,
+"type": "string"
+},
+{
+"in": "query",
+"name": "login",
+"example": "elevage-du-chihuahua",
+"description": "votre login pour vous connecter à votre compte",
+"required": true
+},
+{
+"in": "query",
+"name": "key",
+"example": "99ezf56ez4f9ze4f9ze4fze5fze5fzefze8f",
+"description": "la clé pour vous connecter à votre compte",
+"required": true
+},
+{
+"in": "body",
+"name": "body",
+"description": "Données que vous souhaitez modifier dans l'annonce",
+"required": true,
+"schema": {
+"$ref": "#/definitions/Annonces"
+}
+}
+],
+"responses": {
+"201": {
+"description": "Retourne la liste de vos annonces déjà créées",
+"schema": {
+"type": "object",
+"$ref": "#/definitions/Annonces"
+}
+},
+"404": {
+"description": "Identifiant d'annonce non trouvé"
+},
+"401": {
+"description": "Token invalide"
+},
+"412": {
+"description": "Les paramètres transmis sont invalides"
+},
+"417": {
+"description": "Le token a expiré"
+}
+}
+},
+"delete": {
+"tags": [
+"Gestion des annonces"
+],
+"summary": "Désactivation d'une annonce",
+"description": "API qui vous permet de desactiver une annonce que vous avez créé sur le site babies-pets.fr",
+"operationId": "deleteAnnonce",
+"consumes": [
+"application/json"
+],
+"produces": [
+"application/json"
+],
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"description": "ID de l'annonce à modifier",
+"required": true,
+"type": "string"
+},
+{
+"in": "query",
+"name": "login",
+"example": "elevage-du-chihuahua",
+"description": "votre login pour vous connecter à votre compte",
+"required": true
+},
+{
+"in": "query",
+"name": "key",
+"example": "99ezf56ez4f9ze4f9ze4fze5fze5fzefze8f",
+"description": "la clé pour vous connecter à votre compte",
+"required": true
+}
+],
+"responses": {
+"200": {
+"description": "Désactivation de l'annonce"
+},
+"404": {
+"description": "Identifiant d'annonce non trouvé"
+},
+"401": {
+"description": "Token invalide"
+},
+"412": {
+"description": "Les paramètres transmis sont invalides"
+},
+"417": {
+"description": "Le token a expiré"
+}
+}
+}
+}
+},
+"definitions": {
+"Order": {
+"type": "object",
+"properties": {
+"id": {
+"type": "integer",
+"format": "int64"
+},
+"petId": {
+"type": "integer",
+"format": "int64"
+},
+"quantity": {
+"type": "integer",
+"format": "int32"
+},
+"shipDate": {
+"type": "string",
+"format": "date-time"
+},
+"status": {
+"type": "string",
+"description": "Order Status",
+"enum": [
+"placed",
+"approved",
+"delivered"
+]
+},
+"complete": {
+"type": "boolean",
+"default": false
+}
+},
+"xml": {
+"name": "Order"
+}
+},
+"Annonces": {
+"type": "object",
+"required": [
+"title",
+"description",
+"cat",
+"undercat",
+"price",
+"images"
+],
+"properties": {
+"id": {
+"type": "integer",
+"format": "int64",
+"example": "b20f7566-3951-4458-ba57-eb2e3ffcc409",
+"description": "ID de l'annonce, utile pour la modifier ou la désactiver"
+},
+"title": {
+"type": "string",
+"example": "Portée de deux chihuahuas",
+"decription": "titre de l'annonce"
+},
+"images": {
+"description": "URL des images",
+"example": "https://www.babies-pets.fr/img/compagnon.jpg",
+"type": "array",
+"items": {
+"type": "string"
+}
+},
+"description": {
+"type": "string",
+"example": "Je vous propose une portée de trois beaux <b>chihuahuas</b> agés de quatre mois",
+"description": "description de l'annonce, peut inclure des balises html, mais pas de code javascript"
+},
+"cat": {
+"type": "string",
+"description": "Type d'animal",
+"example": "chiens",
+"enum": [
+"chiens",
+"chats",
+"oiseaux",
+"rongeurs",
+"poissons"
+]
+},
+"undercat": {
+"type": "string",
+"example": "Chihuahua",
+"description": "Race pour les chiens ou chats, ou type de poisson, oiseaux"
+},
+"price": {
+"type": "string",
+"example": "1000",
+"description": "prix qui apparaitra dans l'annonce"
+},
+"youtube": {
+"type": "string",
+"example": "https://youtu.be/Bm1Yka96fU8",
+"description": "URL de la vidéo youtube"
+}
+},
+"xml": {
+"name": "Pet"
+}
+},
+"ApiResponse": {
+"type": "object",
+"properties": {
+"code": {
+"type": "integer",
+"format": "int32"
+},
+"type": {
+"type": "string"
+},
+"message": {
+"type": "string"
+}
+}
+}
+}
+}

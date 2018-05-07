@@ -1,0 +1,47 @@
+<%- partial ('../layout/header.ejs') %>
+</div>
+<div class="container-fluid bg-cat">
+  <div class="container mg-top-85 mg-bottom-150">
+    <div class="row">
+      <div class=" col-xs-12 mg-bottom-20">
+        <div class="row">
+          <form method="post" class="form-edition has-validation-callback" id="form-inscription">
+            <div class="col-xs-12 bg-white bloc-padding-small txt-20">
+              <div class="row  bd-grey">
+                <div class="col-xs-9">
+                  <p class="txt-14 mg-top-10"><a href="/mon-compte" title="Revenir sur votre profil">Votre compte</a> > Edition de votre page : "<%= (user.details.titre || user.pseudo || '') %>"</p>
+                  <h2 class="ttl-h3 mg-bottom-20 txt-up mg-top-20">Edition de votre page</h2>
+                </div>
+
+                <div class="col-xs-3">
+                  <a href="/mon-compte/profil/<%- (user.url || null) %>" title="Voir votre page" class="btn mg-top-30"  target="_blank">Visualiser</a>
+                </div>
+              </div>
+              <%- partial ('form.ejs') %>
+            </div>
+            <div class="col-xs-12 bg-white bloc-padding-small mg-top-10 ">
+              <div class="row">
+                <div class="col-xs-12 col-sm-7 col-sm-offset-1">
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <h3 class="ttl-h3 bd-grey mg-bottom-30 txt-up">Valider les modifications de votre page</h3>
+                    </div>
+                    <div class="col-xs-12 mg-top-10">
+                      <input id="publish_button" class="btn" name="publish" value="Enregistrer" type="submit"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                  <img class="img-responsive" alt="Authentifiez-vous sur babies-pets pour poster vos annonces" src="/img/background/lapinou.jpg"/>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<%- partial ('../layout/footer.ejs') %>
+
+<link rel="stylesheet" href="/styles/trumbowyg.min.css"/><link rel="stylesheet" href="/styles/jquery.Jcrop.css"/>

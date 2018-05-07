@@ -1,0 +1,239 @@
+<%- partial ('../layout/header.ejs') %>
+</div>
+<div class="container-fluid bg-cat">
+<div class="container bg-white mg-bottom-40 pd-bottom-20">
+
+  <div class="row mg-bottom-30">
+    <div class="col-xs-12">
+      <div class="row pres-annu-eleveur">
+
+        <div class="bloc-accueil mg-bottom-40">
+          <form>
+            <label class="bloc-type">
+              <select id="field-type" name="type" class="field-select">
+                <option value="all">Tous les éleveurs</option>
+                <option value="chiens">Eleveurs de chiens</option>
+                <option value="chats">Eleveurs de chats</option>
+                <option value="rongeurs">Eleveurs de rongeurs</option>
+               <!-- <option value="oiseaux">Eleveurs d'oiseaux</option>
+                <option value="reptiles">Eleveur de reptiles</option> -->
+              </select>
+            </label>
+            <label class="bloc-search">
+              <input type="text" placeholder="Vous recherchez un ..." class="field-select field-input" name="search" id="especename"/>
+            </label>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 pd-left-40">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 pd-top-15">
+          <p><a href="/annuaire-eleveurs" title="Voir la liste des éleveurs en Revenir sur la homepage de Babies-pets">Babies-pets</a> &gt; Annuaire des éleveurs</p>
+          <h2 class="ttl-h2 bd-grey mg-bottom-30">Les éleveurs par départements</h2>
+          <p class="txt-16">Vous souhaitez acheter un animal de compagnie : chiot, un chaton, une tortue, un lapin, un canari ?<p>
+          <p class="txt-16">L'annuaire Babies-pets vous accompagne pour adopter un nouveau compagnon ou trouver un éleveur.</p>
+          <p class="txt-16">Les éleveurs sont là pour cerner votre personnalité et vous proposer l'animal qui vous conviendra le mieux.</p>
+
+          <p class="txt-16">L'Annuaire Babies-pets référence les sites d'éleveurs et les sites professionnels dédié aux animaux tels que les éducateurs canin, les toiletteurs, les pensions...</p>
+          <p class="txt-16">L'Annuaire Babies-pets est classé par départements.</p>
+          <p class="txt-16">Pour figurer dans cet annuaire, il suffit de vous <a href="/annuaire/elevage//mon-compte/inscription" title="Voir la liste des éleveurs en Créer un compte sur babies-pets">inscrire sute le site</a>.</p>
+        </div>
+
+        <div class="col-xs-12 col-sm-8 col-sm-offset-1 mg-top-20 mg-bottom-20 hidden-xs">
+          <img src="/img/map_france_dep.jpg" width="528" height="489" border="0" class="pts-map" usemap="#Map_Dep"/>
+          <map name="Map_Dep">
+            <area shape="poly" class="pts-map" coords="44,242, 59,252, 62,249, 76,258, 85,256, 91,261, 92,265, 100,264, 103,266, 115,264, 118,261, 131,260, 127,251, 96,233, 61,237, 57,229, 44,242" href="/annuaire/elevage/95/<%- departmentsUrl[95] %>" title="Voir la liste des éleveurs en val-d-oise" data-title="val-d-oise"/>
+            <area shape="poly" class="pts-map" coords="104,276, 102,276, 101,277, 97,276, 93,278, 91,281, 93,284, 97,284, 100,286, 104,284, 105,282, 107,283, 107,281, 105,278, 104,276, 104,276" href="/annuaire/elevage/75/<%- departmentsUrl[75] %>" title="Voir la liste des éleveurs en paris" data-title="paris"/>
+            <area shape="poly" class="pts-map" coords="92,265, 91,261, 85,256, 76,258, 62,249, 59,252, 44,242, 32,249, 38,263, 47,284, 41,296, 61,322, 63,316, 69,313, 69,308, 75,306, 80,289, 82,288, 80,283, 80,279, 83,277, 84,269, 89,268, 92,265" href="/annuaire/elevage/78/<%- departmentsUrl[78] %>" title="Voir la liste des éleveurs en yvelines" data-title="yvelines"/>
+            <area shape="poly" class="pts-map" coords="107,281, 107,283, 105,282, 104,284, 100,286, 99,293, 100,297, 103,296, 105,300, 107,300, 108,298, 111,300, 120,307, 127,292, 114,280, 107,281, 107,281" href="/annuaire/elevage/94/<%- departmentsUrl[94] %>" title="Voir la liste des éleveurs en val-de-marne" data-title="val-de-marne"/>
+            <area shape="poly" class="pts-map" coords="61,322, 63,316, 69,313, 69,308, 75,306, 80,289, 82,288, 90,294, 92,292, 99,293, 100,297, 103,296, 105,300, 107,300, 108,298, 111,300, 120,307, 118,329, 111,339, 95,341, 90,334, 87,342, 73,343, 70,326, 61,322" href="/annuaire/elevage/91/<%- departmentsUrl[91] %>" title="Voir la liste des éleveurs en essonne" data-title="essonne"/>
+            <area shape="poly" class="pts-map" coords="103,266, 100,264, 92,265, 89,268, 84,269, 83,277, 80,279, 80,283, 82,288, 90,294, 92,292, 99,293, 100,286, 97,284, 93,284, 91,281, 93,278, 97,276, 101,277, 102,276, 103,266" href="/annuaire/elevage/92/<%- departmentsUrl[92] %>" title="Voir la liste des éleveurs en hauts-de-seine" data-title="hauts-de-seine"/>
+            <area shape="poly" class="pts-map" coords="127,292, 114,280, 107,281, 105,278, 104,276, 102,276, 103,266, 115,264, 118,261, 131,260, 133,264, 131,284, 127,292" href="/annuaire/elevage/93/<%- departmentsUrl[93] %>" title="Voir la liste des éleveurs en seine-saint-denis" data-title="seine-saint-denis"/>
+            <area shape="poly" class="pts-map" coords="105,115,101,119,98,115,101,112,105,115" href="/annuaire/elevage/97/<%- departmentsUrl[97] %>" title="Voir la liste des éleveurs en reunion" data-title="reunion"/>
+            <area shape="poly" class="pts-map" coords="49,63, 45,67, 42,63, 45,60, 49,63" href="/annuaire/elevage/98/<%- departmentsUrl[98] %>" title="Voir la liste des éleveurs en saint-pierre-et-miquelon" data-title="saint-pierre-et-miquelon"/>
+            <area shape="poly" class="pts-map" coords="103,102,99,106,96,102,99,99,103,102" href="/annuaire/elevage/98/<%- departmentsUrl[98] %>" title="Voir la liste des éleveurs en mayotte" data-title="mayotte"/>
+            <area shape="poly" class="pts-map" coords="36,78, 32,81, 29,78, 32,74, 36,78" href="/annuaire/elevage/97/<%- departmentsUrl[97] %>" title="Voir la liste des éleveurs en guadeloupe" data-title="guadeloupe"/>
+            <area shape="poly" class="pts-map" coords="39,87, 35,91, 31,87, 35,84, 39,87" href="/annuaire/elevage/97/<%- departmentsUrl[97] %>" title="Voir la liste des éleveurs en martinique" data-title="martinique"/>
+            <area shape="poly" class="pts-map" coords="159,117, 155,121, 152,117, 155,114, 159,117" href="/annuaire/elevage/98/<%- departmentsUrl[98] %>" title="Voir la liste des éleveurs en nouvelle-caledonie" data-title="nouvelle-caledonie"/>
+            <area shape="poly" class="pts-map" coords="20,117, 16,120, 12,117, 16,113, 20,117" href="/annuaire/elevage/98/<%- departmentsUrl[98] %>" title="Voir la liste des éleveurs en polynesie-francaise" data-title="polynesie-francaise"/>
+            <area shape="poly" class="pts-map" coords="46,99, 43,102, 39,99, 43,95, 46,99" href="/annuaire/elevage/97/<%- departmentsUrl[97] %>" title="Voir la liste des éleveurs en guyane" data-title="guyane"/>
+            <area shape="poly" class="pts-map" coords="323,171, 326,167, 327,157, 330,151, 332,148, 333,139, 332,137, 330,134, 332,132, 343,135, 347,131, 349,139, 356,150, 359,160, 355,172, 344,170, 341,180, 332,178, 332,185, 329,181, 323,181, 323,171, 323,171" href="/annuaire/elevage/77/<%- departmentsUrl[77] %>" title="Voir la liste des éleveurs en seine-et-marne" data-title="seine-et-marne"/>
+            <area shape="poly" class="pts-map" coords="445,194, 452,193, 462,193, 477,201, 477,201, 481,198, 480,195, 483,188, 489,183, 492,176, 488,173, 489,168, 478,173, 462,171, 458,170, 455,173, 448,173, 444,169, 438,166, 431,170, 430,168, 428,169, 429,174, 434,180, 437,180, 439,181, 435,188, 438,189, 441,194, 445,194, 445,194" href="/annuaire/elevage/88/<%- departmentsUrl[88] %>" title="Voir la liste des éleveurs en vosges" data-title="vosges"/>
+            <area shape="poly" class="pts-map" coords="489,165, 483,162, 460,149, 458,142, 449,138, 450,116, 463,117, 472,128, 505,134, 501,142, 489,140, 487,137, 484,144, 493,150, 491,156, 493,159, 489,165" href="/annuaire/elevage/57/<%- departmentsUrl[57] %>" title="Voir la liste des éleveurs en moselle" data-title="moselle"/>
+            <area shape="poly" class="pts-map" coords="445,111, 450,116, 449,138, 458,142, 460,149, 483,162, 489,165, 489,168, 478,173, 462,171, 458,170, 455,173, 448,173, 444,169, 438,166, 439,145, 442,139, 439,134, 439,121, 433,117, 431,120, 432,113, 445,111" href="/annuaire/elevage/54/<%- departmentsUrl[54] %>" title="Voir la liste des éleveurs en meurthe-et-moselle" data-title="meurthe-et-moselle"/>
+            <area shape="poly" class="pts-map" coords="314,269, 314,275, 321,279, 322,282, 325,292, 317,299, 320,301, 321,309, 306,308, 305,304, 297,304, 285,291, 287,284, 282,279, 285,270, 290,270, 295,267, 311,269, 312,267, 314,269" href="/annuaire/elevage/23/<%- departmentsUrl[23] %>" title="Voir la liste des éleveurs en creuse" data-title="creuse"/>
+            <area shape="poly" class="pts-map" coords="285,270, 282,279, 287,284, 285,291, 297,304, 290,308, 283,310, 274,316, 272,313, 269,315, 261,308, 256,309, 253,303, 260,287, 257,282, 262,274, 269,273, 274,268, 279,268, 285,270" href="/annuaire/elevage/87/<%- departmentsUrl[87] %>" title="Voir la liste des éleveurs en haute-vienne" data-title="haute-vienne"/>
+            <area shape="poly" class="pts-map" coords="341,209, 337,214, 345,229, 347,252, 328,255, 327,261, 314,269, 312,267, 309,261, 310,256, 308,253, 307,249, 310,242, 300,231, 304,224, 309,223, 309,220, 315,217, 311,209, 314,207, 328,205, 332,208, 341,209" href="/annuaire/elevage/18/<%- departmentsUrl[18] %>" title="Voir la liste des éleveurs en cher" data-title="cher"/>
+            <area shape="poly" class="pts-map" coords="264,253, 274,268, 279,268, 285,270, 290,270, 295,267, 311,269, 312,267, 309,261, 310,256, 308,253, 307,249, 310,242, 300,231, 301,228, 295,224, 284,229, 281,229, 279,237, 270,237, 268,248, 264,253" href="/annuaire/elevage/36/<%- departmentsUrl[36] %>" title="Voir la liste des éleveurs en indre" data-title="indre"/>
+            <area shape="poly" class="pts-map" coords="281,229, 279,237, 270,237, 268,248, 264,253, 257,245, 258,238, 255,236, 253,238, 244,238, 241,230, 237,229, 236,223, 241,211, 245,207, 248,205, 248,202, 253,203, 259,200, 265,200, 266,205, 270,205, 272,208, 274,213, 272,219, 281,229" href="/annuaire/elevage/37/<%- departmentsUrl[37] %>" title="Voir la liste des éleveurs en indre-et-loire" data-title="indre-et-loire"/>
+            <area shape="poly" class="pts-map" coords="314,169, 316,172, 323,171, 323,181, 329,181, 332,185, 332,178, 341,180, 344,183, 345,191, 337,202, 341,209, 332,208, 328,205, 314,207, 311,203, 308,205, 301,203, 297,205, 291,196, 294,189, 292,186, 302,181, 307,176, 307,173, 313,172, 314,169" href="/annuaire/elevage/45/<%- departmentsUrl[45] %>" title="Voir la liste des éleveurs en loiret" data-title="loiret"/>
+            <area shape="poly" class="pts-map" coords="292,186, 294,189, 291,196, 297,205, 301,203, 308,205, 311,203, 314,207, 311,209, 315,217, 309,220, 309,223, 304,224, 301,228, 295,224, 284,229, 281,229, 272,219, 274,213, 272,208, 270,205, 266,205, 265,200, 259,200, 263,191, 266,183, 274,183, 279,187, 286,189, 292,186" href="/annuaire/elevage/41/<%- departmentsUrl[41] %>" title="Voir la liste des éleveurs en loir-et-cher" data-title="loir-et-cher"/>
+            <area shape="poly" class="pts-map" coords="296,147, 293,152, 302,164, 306,165, 307,173, 307,176, 302,181, 292,186, 286,189, 279,187, 274,183, 266,183, 267,179, 264,176, 266,169, 273,165, 269,155, 267,157, 265,148, 274,148, 282,146, 288,139, 292,139, 296,147" href="/annuaire/elevage/28/<%- departmentsUrl[28] %>" title="Voir la liste des éleveurs en eure-et-loir" data-title="eure-et-loir"/>
+            <area shape="poly" class="pts-map" coords="373,323, 384,325, 392,333, 389,341, 385,343, 382,348, 375,351, 373,355, 369,356, 365,355, 362,349, 354,352, 351,346, 349,341, 351,337, 342,327, 343,323, 354,320, 363,325, 373,323" href="/annuaire/elevage/43/<%- departmentsUrl[43] %>" title="Voir la liste des éleveurs en haute-loire" data-title="haute-loire"/>
+            <area shape="poly" class="pts-map" coords="373,323, 363,325, 354,320, 343,323, 342,327, 338,327, 334,321, 328,322, 325,317, 322,319, 320,315, 321,309, 320,301, 317,299, 325,292, 322,282, 328,283, 335,278, 339,279, 338,282, 340,286, 364,294, 366,307, 373,316, 373,323" href="/annuaire/elevage/63/<%- departmentsUrl[63] %>" title="Voir la liste des éleveurs en puy-de-dome" data-title="puy-de-dome"/>
+            <area shape="poly" class="pts-map" coords="304,356, 309,356, 311,360, 313,362, 323,354, 330,345, 338,359, 342,354, 342,348, 348,351, 351,346, 349,341, 351,337, 342,327, 338,327, 334,321, 328,322, 325,317, 322,319, 323,322, 321,326, 316,319, 313,326, 306,330, 302,344, 304,356" href="/annuaire/elevage/15/<%- departmentsUrl[15] %>" title="Voir la liste des éleveurs en cantal" data-title="cantal"/>
+            <area shape="poly" class="pts-map" coords="377,267, 379,281, 374,284, 373,280, 367,282, 368,292, 364,294, 340,286, 338,282, 339,279, 335,278, 328,283, 322,282, 321,279, 314,275, 314,269, 327,261, 328,255, 347,252, 356,257, 356,260, 361,259, 360,255, 367,256, 373,265, 377,267" href="/annuaire/elevage/03/<%- departmentsUrl['03'] %>" title="Voir la liste des éleveurs en allier" data-title="allier"/>
+            <area shape="poly" class="pts-map" coords="369,363, 373,364, 376,372, 377,379, 381,380, 385,378, 393,378, 398,383, 398,377, 399,370, 407,356, 405,343, 404,329, 405,323, 399,327, 399,331, 394,334, 392,333, 389,341, 385,343, 382,348, 375,351, 373,355, 369,356, 369,363" href="/annuaire/elevage/07/<%- departmentsUrl['07'] %>" title="Voir la liste des éleveurs en ardeche" data-title="ardeche"/>
+            <area shape="poly" class="pts-map" coords="405,343, 407,356, 399,370, 398,377, 406,378, 407,375, 409,373, 412,375, 409,380, 411,381, 415,381, 419,384, 424,383, 431,392, 435,392, 437,389, 437,386, 430,373, 434,370, 436,363, 443,362, 445,359, 442,359, 435,357, 430,351, 432,345, 428,341, 419,340, 416,332, 412,328, 404,329, 405,343" href="/annuaire/elevage/26/<%- departmentsUrl[26] %>" title="Voir la liste des éleveurs en drome" data-title="drome"/>
+            <area shape="poly" class="pts-map" coords="253,111,256,109,270,116,269,120,278,124,286,114,303,118,299,122,300,125,289,133,289,136,279,146,265,147,264,142,256,141,255,136,257,133,254,130" href="/annuaire/elevage/27/<%- departmentsUrl[27] %>" title="Voir la liste des éleveurs en eure" data-title="eure"/>
+            <area shape="poly" class="pts-map" coords="418,110,426,111,427,109,431,113,430,120,438,123,438,134,442,138,438,142,436,163,433,168,430,165,427,168,420,164,414,157,415,148,413,146,419,140,413,133" href="/annuaire/elevage/55/<%- departmentsUrl[55] %>" title="Voir la liste des éleveurs en meuse" data-title="meuse"/>
+            <area shape="poly" class="pts-map" coords="359,160,362,162,366,165,373,167,377,160,388,160,392,166,400,168,409,185,401,186,401,189,394,189,393,192,386,194,383,189,377,192,371,183,366,183,360,173,357,171" href="/annuaire/elevage/10/<%- departmentsUrl[10] %>" title="Voir la liste des éleveurs en aube" data-title="aube"/>
+            <area shape="poly" class="pts-map" coords="207,268,212,263,209,237,218,231,226,232,231,248,229,251,231,257,230,267,234,271,235,276,232,281,227,287,218,276,209,277" href="/annuaire/elevage/79/<%- departmentsUrl[79] %>" title="Voir la liste des éleveurs en deux-sevres" title="Voir la liste des éleveurs en deux-sevres"/>
+            <area shape="poly" class="pts-map" coords="274,318,294,306,304,306,303,310,318,310,319,316,323,323,317,318,313,322,309,325,305,330,302,343,290,341,287,335,281,339,274,333,278,328,273,325" href="/annuaire/elevage/19/<%- departmentsUrl[19] %>" title="Voir la liste des éleveurs en correze" data-title="correze"/>
+            <area shape="poly" class="pts-map" coords="369,388,364,383,356,388,352,383,348,381,344,378,344,364,339,359,343,356,343,352,348,354,350,348,355,354,362,351,362,355,366,357,367,364,372,367,374,370,368,372,369,377,370,384" href="/annuaire/elevage/48/<%- departmentsUrl[48] %>" title="Voir la liste des éleveurs en lozere" data-title="lozere"/>
+            <area shape="poly" class="pts-map" coords="393,278, 402,277, 405,281, 408,281, 404,296, 409,307, 405,313, 405,323, 396,316, 392,315, 389,300, 385,295, 392,285, 389,282, 393,278" href="/annuaire/elevage/69/<%- departmentsUrl[69] %>" title="Voir la liste des éleveurs en rhone" data-title="rhone"/>
+            <area shape="poly" class="pts-map" coords="471,340, 489,327, 488,319, 478,307, 471,305, 467,301, 459,310, 452,307, 450,304, 443,301, 442,308, 435,313, 439,322, 443,324, 445,321, 453,324, 453,328, 452,334, 459,338, 471,340" href="/annuaire/elevage/73/<%- departmentsUrl[73] %>" title="Voir la liste des éleveurs en savoie" data-title="savoie"/>
+            <area shape="poly" class="pts-map" coords="435,313, 439,322, 443,324, 445,321, 453,324, 453,328, 452,334, 459,338, 461,349, 453,355, 449,353, 445,359, 442,359, 435,357, 430,351, 432,345, 428,341, 419,340, 416,332, 412,328, 404,329, 405,323, 405,313, 409,307, 421,307, 425,302, 430,305, 435,313" href="/annuaire/elevage/38/<%- departmentsUrl[38] %>" title="Voir la liste des éleveurs en isere" data-title="isere"/>
+            <area shape="poly" class="pts-map" coords="460,277, 458,283, 447,287, 441,289, 443,301, 450,304, 452,307, 459,310, 467,301, 471,305, 478,307, 486,299, 484,293, 476,287, 478,274, 473,273, 471,275, 468,274, 465,276, 462,274, 460,277" href="/annuaire/elevage/74/<%- departmentsUrl[74] %>" title="Voir la liste des éleveurs en haute-savoie" data-title="haute-savoie"/>
+            <area shape="poly" class="pts-map" coords="451,272, 453,278, 447,287, 441,289, 443,301, 442,308, 435,313, 430,305, 425,302, 421,307, 409,307, 404,296, 408,281, 411,267, 420,265, 423,271, 427,271, 430,277, 434,274, 440,278, 451,272" href="/annuaire/elevage/01/<%- departmentsUrl['01'] %>" title="Voir la liste des éleveurs en ain" data-title="ain"/>
+            <area shape="poly" class="pts-map" coords="389,282, 392,285, 385,295, 389,300, 392,315, 396,316, 405,323, 399,327, 399,331, 394,334, 392,333, 384,325, 373,323, 373,316, 366,307, 364,294, 368,292, 367,282, 373,280, 374,284, 379,281, 389,282" href="/annuaire/elevage/42/<%- departmentsUrl[42] %>" title="Voir la liste des éleveurs en loire" data-title="loire"/>
+            <area shape="poly" class="pts-map" coords="205,234, 208,241, 211,265, 206,266, 204,266, 201,269, 192,268, 189,267, 180,262, 179,259, 166,257, 163,241, 159,237, 161,235, 163,230, 184,238, 183,232, 184,231, 187,233, 194,228, 197,232, 205,234" href="/annuaire/elevage/85/<%- departmentsUrl[85] %>" title="Voir la liste des éleveurs en vendee" data-title="vendee"/>
+            <area shape="poly" class="pts-map" coords="237,163, 247,160, 252,161, 254,168, 261,172, 264,176, 267,179, 266,183, 263,191, 259,200, 253,203, 248,202, 248,205, 245,207, 233,201, 230,203, 228,198, 223,197, 223,190, 229,184, 228,180, 237,163" href="/annuaire/elevage/72/<%- departmentsUrl[72] %>" title="Voir la liste des éleveurs en sarthe" data-title="sarthe"/>
+            <area shape="poly" class="pts-map" coords="195,191, 203,194, 223,197, 228,198, 230,203, 233,201, 245,207, 241,211, 236,223, 237,229, 233,231, 231,228, 229,232, 226,229, 223,230, 219,229, 209,235, 205,234, 197,232, 194,228, 195,220, 192,217, 204,213, 203,208, 196,207, 199,201, 195,191" href="/annuaire/elevage/49/<%- departmentsUrl[49] %>" title="Voir la liste des éleveurs en maine-et-loire" data-title="maine-et-loire"/>
+            <area shape="poly" class="pts-map" coords="213,154, 216,158, 234,154, 237,163, 228,180, 229,184, 223,190, 223,197, 203,194, 195,191, 197,186, 203,179, 200,172, 204,156, 213,154" href="/annuaire/elevage/53/<%- departmentsUrl[53] %>" title="Voir la liste des éleveurs en mayenne" data-title="mayenne"/>
+            <area shape="poly" class="pts-map" coords="151,203, 156,203, 162,199, 176,195, 179,189, 184,190, 187,187, 195,191, 199,201, 196,207, 203,208, 204,213, 192,217, 195,220, 194,228, 187,233, 184,231, 183,232, 184,238, 163,230, 163,224, 157,222, 160,217, 161,214, 162,211, 155,214, 151,212, 148,215, 146,213, 148,211, 147,206, 150,207,
+    151,203" href="/annuaire/elevage/44/<%- departmentsUrl[44] %>" title="Voir la liste des éleveurs en loire-atlantique" data-title="loire-atlantique"/>
+            <area shape="poly" class="pts-map" coords="486,231, 481,238, 469,245, 454,264, 450,260, 451,254, 444,244, 439,241, 441,230, 451,223, 451,220, 455,220, 462,215, 466,217, 471,214, 478,215, 483,222, 486,231" href="/annuaire/elevage/25/<%- departmentsUrl[25] %>" title="Voir la liste des éleveurs en doubs" data-title="doubs"/>
+            <area shape="poly" class="pts-map" coords="451,223, 451,220, 455,220, 462,215, 466,217, 471,214, 478,215, 477,201, 462,193, 452,193, 445,194, 445,197, 436,203, 439,205, 437,208, 430,207, 428,211, 430,214, 427,218, 431,226, 441,230, 451,223" href="/annuaire/elevage/70/<%- departmentsUrl[70] %>" title="Voir la liste des éleveurs en haute-saone" data-title="haute-saone"/>
+            <area shape="poly" class="pts-map" coords="441,230, 439,241, 444,244, 451,254, 450,260, 454,264, 451,272, 440,278, 434,274, 430,277, 427,271, 425,254, 428,251, 423,245, 424,240, 430,235, 431,226, 441,230" href="/annuaire/elevage/39/<%- departmentsUrl[39] %>" title="Voir la liste des éleveurs en jura" data-title="jura"/>
+            <area shape="poly" class="pts-map" coords="483,222, 478,215, 477,201, 477,201, 485,206, 491,219, 483,222" href="/annuaire/elevage/98/<%- departmentsUrl[98] %>" title="Voir la liste des éleveurs en territoire-de-belfort" data-title="territoire-de-belfort"/>
+            <area shape="poly" class="pts-map" coords="235,387, 240,387, 240,387, 246,387, 251,387, 251,392, 254,392, 255,395, 255,400, 259,401, 264,410, 259,415, 259,418, 254,417, 248,423, 243,422, 239,419, 232,417, 227,412, 230,409, 226,406, 220,407, 212,405, 212,401, 218,397, 217,391, 220,388, 225,390, 227,388, 235,387" href="/annuaire/elevage/32/<%- departmentsUrl[32] %>" title="Voir la liste des éleveurs en gers" data-title="gers"/>
+            <area shape="poly" class="pts-map" coords="220,407, 226,406, 230,409, 227,412, 232,417, 239,419, 243,422, 237,427, 237,429, 241,432, 239,436, 242,438, 244,444, 240,446, 239,453, 220,452, 216,450, 213,452, 207,445, 211,434, 217,425, 214,423, 215,419, 220,421, 218,412, 221,411, 220,407" href="/annuaire/elevage/65/<%- departmentsUrl[65] %>" title="Voir la liste des éleveurs en hautes-pyrenees" data-title="hautes-pyrenees"/>
+            <area shape="poly" class="pts-map" coords="239,453, 241,451, 243,453, 249,448, 252,448, 254,442, 258,437, 269,435, 268,432, 272,430, 269,426, 271,425, 274,425, 275,427, 279,426, 284,428, 287,423, 289,423, 291,420, 294,421, 294,418, 287,412, 285,401, 281,394, 272,396, 268,402, 265,399, 259,401, 264,410, 259,415, 259,418, 254,417,
+    248,423, 243,422, 237,427, 237,429, 241,432, 239,436, 242,438, 244,444, 240,446, 239,453" href="/annuaire/elevage/31/<%- departmentsUrl[31] %>"  title="Voir la liste des éleveurs en haute-garonne" data-title="haute-garonne"/>
+            <area shape="poly" class="pts-map" coords="252,448, 254,442, 258,437, 269,435, 268,432, 272,430, 269,426, 271,425, 274,425, 275,427, 279,426, 284,428, 287,433, 292,433, 295,439, 294,443, 288,450, 299,458, 292,461, 283,462, 282,460, 277,459, 271,459, 268,454, 252,448" href="/annuaire/elevage/09/<%- departmentsUrl['09'] %>" title="Voir la liste des éleveurs en ariege" data-title="ariege"/>
+            <area shape="poly" class="pts-map" coords="281,394, 285,401, 287,412, 294,418, 294,421, 298,417, 300,421, 313,423, 320,420, 321,408, 323,407, 329,411, 333,410, 334,406, 320,398, 319,391, 311,385, 304,384, 295,384, 288,383, 283,387, 284,392, 281,394" href="/annuaire/elevage/81/<%- departmentsUrl[81] %>" title="Voir la liste des éleveurs en tarn" data-title="tarn"/>
+            <area shape="poly" class="pts-map" coords="351,393, 348,390, 353,387, 345,382, 342,377, 342,366, 338,359, 330,345, 323,354, 313,362, 311,360, 307,364, 297,367, 291,373, 296,377, 295,384, 304,384, 311,385, 319,391, 320,398, 334,406, 337,407, 339,399, 344,401, 350,396, 351,393" href="/annuaire/elevage/12/<%- departmentsUrl[12] %>" title="Voir la liste des éleveurs en aveyron" data-title="aveyron"/>
+            <area shape="poly" class="pts-map" coords="296,377, 295,384, 288,383, 283,387, 284,392, 281,394, 272,396, 268,402, 265,399, 259,401, 255,400, 255,395, 254,392, 251,392, 251,387, 260,380, 260,377, 257,374, 259,370, 265,371, 277,378, 281,375, 287,376, 291,373, 296,377" href="/annuaire/elevage/82/<%- departmentsUrl[82] %>" title="Voir la liste des éleveurs en tarn-et-garonne"  data-title="tarn-et-garonne"/>
+            <area shape="poly" class="pts-map" coords="279,340, 278,347, 272,355, 263,361, 261,362, 265,371, 277,378, 281,375, 287,376, 291,373, 297,367, 307,364, 311,360, 309,356, 304,356, 302,344, 288,340, 286,337, 279,340" href="/annuaire/elevage/46/<%- departmentsUrl[46] %>" title="Voir la liste des éleveurs en lot" data-title="lot"/>
+            <area shape="poly" class="pts-map" coords="484,377, 496,389, 505,390, 511,398, 505,405, 508,411, 493,418, 492,425, 487,421, 484,424, 480,420, 479,411, 474,407, 480,402, 480,398, 477,396, 475,386, 478,378, 484,377" href="/annuaire/elevage/06/<%- departmentsUrl['06'] %>" title="Voir la liste des éleveurs en alpes-maritimes" data-title="alpes-maritimes"/>
+            <area shape="poly" class="pts-map" coords="479,411, 480,420, 484,424, 482,429, 475,426, 477,430, 471,434, 477,435, 477,438, 474,441, 471,438, 464,441, 465,444, 462,444, 459,441, 456,442, 455,445, 452,443, 444,441, 444,444, 441,445, 437,445, 437,442, 439,432, 436,429, 438,426, 441,427, 441,423, 437,420, 442,413, 441,411, 442,410,
+    448,412, 457,409, 462,411, 468,407, 474,407, 479,411" href="/annuaire/elevage/83/<%- departmentsUrl[83] %>" title="Voir la liste des éleveurs en var" title="Voir la liste des éleveurs en var"/>
+            <area shape="poly" class="pts-map" coords="384,421, 385,426, 392,426, 396,431, 403,431, 406,428, 410,430, 410,433, 421,433, 422,435, 420,438, 425,441, 428,438, 437,442, 439,432, 436,429, 438,426, 441,427, 441,423, 437,420, 442,413, 441,411, 437,411, 429,414, 423,409, 415,409, 405,401, 397,406, 396,411, 389,414, 390,418, 384,421" href="/annuaire/elevage/13/<%- departmentsUrl[13] %>" title="Voir la liste des éleveurs en bouches-du-rhone" data-title="bouches-du-rhone"/>
+            <area shape="poly" class="pts-map" coords="415,409, 423,409, 429,414, 437,411, 436,405, 430,399, 431,392, 424,383, 419,384, 415,381, 411,381, 409,380, 412,375, 409,373, 407,375, 406,378, 398,377, 398,383, 400,389, 404,394, 405,401, 415,409" href="/annuaire/elevage/84/<%- departmentsUrl[84] %>" title="Voir la liste des éleveurs en vaucluse" data-title="vaucluse"/>
+            <area shape="poly" class="pts-map" coords="484,377, 478,378, 475,386, 477,396, 480,398, 480,402, 474,407, 468,407, 462,411, 457,409, 448,412, 442,410, 441,411, 437,411, 436,405, 430,399, 431,392, 435,392, 437,389, 437,386, 441,385, 447,378, 454,376, 458,377, 460,374, 467,375, 474,370, 475,367, 483,366, 484,377" href="/annuaire/elevage/04/<%- departmentsUrl['04'] %>" title="Voir la liste des éleveurs en alpes-de-haute-provence" data-title="alpes-de-haute-provence"/>
+            <area shape="poly" class="pts-map" coords="443,362, 436,363, 434,370, 430,373, 437,386, 441,385, 447,378, 454,376, 458,377, 460,374, 467,375, 474,370, 475,367, 483,366, 488,359, 486,353, 481,352, 471,340, 459,338, 461,349, 453,355, 449,353, 445,359, 445,359, 443,362" href="/annuaire/elevage/05/<%- departmentsUrl['05'] %>" title="Voir la liste des éleveurs en hautes-alpes" data-title="hautes-alpes"/>
+            <area shape="poly" class="pts-map" coords="428,251, 425,254, 427,271, 423,271, 420,265, 411,267, 408,281, 405,281, 402,277, 393,278, 389,282, 379,281, 377,267, 373,265, 367,256, 379,253, 380,243, 378,242, 379,238, 384,234, 386,238, 402,244, 423,245, 428,251" href="/annuaire/elevage/71/<%- departmentsUrl[71] %>" title="Voir la liste des éleveurs en saone-et-loire" data-title="saone-et-loire"/>
+            <area shape="poly" class="pts-map" coords="379,238, 378,242, 380,243, 379,253, 367,256, 360,255, 361,259, 356,260, 356,257, 347,252, 345,229, 337,214, 341,209, 352,213, 357,211, 366,216, 367,220, 371,218, 376,225, 379,222, 383,223, 381,228, 384,234, 379,238" href="/annuaire/elevage/58/<%- departmentsUrl[58] %>"  title="Voir la liste des éleveurs en nievre" data-title="nievre"/>
+            <area shape="poly" class="pts-map" coords="383,223, 381,228, 384,234, 386,238, 402,244, 423,245, 424,240, 430,235, 431,226, 427,218, 430,214, 428,211, 421,212, 411,208, 414,203, 412,200, 409,200, 401,191, 396,191, 394,194, 385,194, 385,197, 388,200, 383,216, 379,222, 383,223" href="/annuaire/elevage/21/<%- departmentsUrl[21] %>" title="Voir la liste des éleveurs en cote-d-or" data-title="cote-d-or"/>
+            <area shape="poly" class="pts-map" coords="385,194, 385,197, 388,200, 383,216, 379,222, 376,225, 371,218, 367,220, 366,216, 357,211, 352,213, 341,209, 337,202, 345,191, 344,183, 341,180, 344,170, 355,172, 358,172, 361,177, 363,182, 367,183, 375,193, 382,191, 385,194" href="/annuaire/elevage/89/<%- departmentsUrl[89] %>" title="Voir la liste des éleveurs en yonne" data-title="yonne"/>
+            <area shape="poly" class="pts-map" coords="352,82, 347,83, 347,83, 349,77, 345,70, 346,65, 344,61, 330,55, 327,52, 328,48, 323,47, 320,35, 333,32, 335,45, 339,49, 343,52, 347,49, 350,47, 358,52, 358,55, 358,59, 358,62, 363,62, 367,63, 369,72, 382,69, 387,75, 383,87, 380,88, 373,84, 363,85, 352,82" href="/annuaire/elevage/59/<%- departmentsUrl[59] %>" title="Voir la liste des éleveurs en nord" data-title="nord"/>
+            <area shape="poly" class="pts-map" coords="347,83, 347,83, 331,83, 333,79, 321,75, 319,77, 316,77, 314,72, 299,65, 300,57, 300,50, 300,43, 320,35, 323,47, 328,48, 327,52, 330,55, 344,61, 346,65, 345,70, 349,77, 347,83" href="/annuaire/elevage/62/<%- departmentsUrl[62] %>" title="Voir la liste des éleveurs en pas-de-calais" data-title="pas-de-calais"/>
+            <area shape="poly" class="pts-map" coords="352,82, 350,87, 352,90, 351,92, 348,92, 346,103, 347,116, 342,127, 347,128, 347,131, 349,139, 356,150, 360,149, 365,139, 363,135, 367,130, 366,127, 368,120, 380,121, 380,118, 379,105, 384,103, 383,99, 389,91, 383,87, 380,88, 373,84, 363,85, 352,82" href="/annuaire/elevage/02/<%- departmentsUrl['02'] %>" title="Voir la liste des éleveurs en aisne" data-title="aisne"/>
+            <area shape="poly" class="pts-map" coords="303,120, 300,124, 302,128, 317,126, 330,134, 332,132, 343,135, 347,131, 347,128, 342,127, 347,116, 346,103, 335,103, 331,106, 326,105, 323,101, 313,100, 305,97, 301,105, 305,110, 302,117, 303,120" href="/annuaire/elevage/60/<%- departmentsUrl[60] %>" title="Voir la liste des éleveurs en oise" data-title="oise"/>
+            <area shape="poly" class="pts-map" coords="292,82, 296,76, 301,77, 302,76, 298,72, 299,65, 314,72, 316,77, 319,77, 321,75, 333,79, 331,83, 347,83, 352,82, 350,87, 352,90, 351,92, 348,92, 346,103, 335,103, 331,106, 326,105, 323,101, 313,100, 305,97, 299,87, 295,86, 292,82" href="/annuaire/elevage/80/<%- departmentsUrl[80] %>" title="Voir la liste des éleveurs en somme" data-title="somme"/>
+            <area shape="poly" class="pts-map" coords="377,157, 373,165, 364,163, 362,160, 359,160, 356,150, 360,149, 365,139, 363,135, 367,130, 366,127, 368,120, 380,121, 380,118, 386,118, 394,126, 400,126, 409,129, 413,130, 413,136, 416,139, 412,145, 414,148, 413,157, 405,155, 407,160, 405,161, 404,166, 402,166, 393,164, 388,158, 377,157" href="/annuaire/elevage/51/<%- departmentsUrl[51] %>" title="Voir la liste des éleveurs en marne" data-title="marne"/>
+            <area shape="poly" class="pts-map" coords="405,155, 413,157, 417,160, 419,165, 428,169, 429,174, 434,180, 437,180, 439,181, 435,188, 438,189, 441,194, 445,194, 445,197, 436,203, 439,205, 437,208, 430,207, 428,211, 421,212, 411,208, 414,203, 412,200, 409,200, 401,191, 402,188, 409,187, 410,185, 402,170, 402,166, 404,166, 405,161,
+    407,160, 405,155" href="/annuaire/elevage/52/<%- departmentsUrl[52] %>" title="Voir la liste des éleveurs en haute-marne" data-title="haute-marne"/>
+            <area shape="poly" class="pts-map" coords="403,80, 409,80, 407,87, 413,100, 420,101, 429,111, 426,112, 417,109, 413,130, 409,129, 400,126, 394,126, 386,118, 380,118, 379,105, 384,103, 383,99, 389,91, 403,80" href="/annuaire/elevage/08/<%- departmentsUrl['08'] %>" title="Voir la liste des éleveurs en ardennes" data-title="ardennes"/>
+            <area shape="poly" class="pts-map" coords="500,221, 506,211, 504,200, 509,195, 507,186, 495,175, 492,176, 489,183, 483,188, 480,195, 481,198, 477,201, 485,206, 491,219, 496,221, 500,221" href="/annuaire/elevage/68/<%- departmentsUrl[68] %>" title="Voir la liste des éleveurs en haut-rhin" data-title="haut-rhin"/>
+            <area shape="poly" class="pts-map" coords="495,175, 507,186, 513,168, 512,160, 527,145, 521,136, 505,134, 501,142, 489,140, 487,137, 484,144, 493,150, 491,156, 493,159, 489,165, 489,168, 488,173, 492,176, 495,175" href="/annuaire/elevage/67/<%- departmentsUrl[67] %>" title="Voir la liste des éleveurs en bas-rhin" data-title="bas-rhin"/>
+            <area shape="poly" class="pts-map" coords="163,406, 162,407, 160,409, 154,410, 155,412, 158,415, 161,416, 164,420, 166,422, 163,429, 164,431, 168,431, 171,429, 174,430, 177,432, 180,435, 182,438, 184,437, 187,436, 189,437, 191,437, 193,439, 194,441, 195,443, 196,444, 200,445, 203,444, 207,445, 211,434, 217,425, 214,423, 215,419,
+    220,421, 218,412, 221,411, 220,407, 212,405, 201,408, 191,406, 185,409, 175,407, 171,408, 163,406" href="/annuaire/elevage/64/<%- departmentsUrl[64] %>" title="Voir la liste des éleveurs en pyrenees-atlantiques" title="Voir la liste des éleveurs en pyrenees-atlantiques"/>
+            <area shape="poly" class="pts-map" coords="275,328, 272,325, 274,316, 272,313, 269,315, 261,308, 256,309, 253,303, 246,306, 246,311, 238,317, 238,322, 232,326, 226,326, 229,331, 226,338, 228,342, 237,342, 237,350, 241,354, 255,354, 257,357, 260,356, 263,361, 272,355, 278,347, 279,340, 272,330, 275,328" href="/annuaire/elevage/24/<%- departmentsUrl[24] %>" title="Voir la liste des éleveurs en dordogne" data-title="dordogne"/>
+            <area shape="poly" class="pts-map" coords="265,371, 259,370, 257,374, 260,377, 260,380, 251,387, 246,387, 240,387, 235,387, 227,388, 227,379, 221,377, 220,375, 230,356, 229,352, 230,349, 232,351, 237,350, 241,354, 255,354, 257,357, 260,356, 263,361, 261,362, 265,371" href="/annuaire/elevage/47/<%- departmentsUrl[47] %>" title="Voir la liste des éleveurs en lot-et-garonne" data-title="lot-et-garonne"/>
+            <area shape="poly" class="pts-map" coords="188,358, 188,363, 200,361, 204,365, 207,365, 210,369, 208,371, 214,375, 216,373, 220,375, 221,377, 227,379, 227,388, 225,390, 220,388, 217,391, 218,397, 212,401, 212,405, 201,408, 191,406, 185,409, 175,407, 171,408, 163,406, 174,381, 175,374, 176,357, 188,358" href="/annuaire/elevage/40/<%- departmentsUrl[40] %>" title="Voir la liste des éleveurs en landes" data-title="landes"/>
+            <area shape="poly" class="pts-map" coords="176,357, 180,353, 187,353, 188,352, 187,351, 188,349, 184,346, 179,351, 181,339, 185,321, 186,308, 190,306, 201,327, 203,331, 206,333, 205,330, 203,325, 203,321, 203,319, 209,316, 216,327, 222,330, 226,326, 229,331, 226,338, 228,342, 237,342, 237,350, 232,351, 230,349, 229,352, 230,356,
+    220,375, 216,373, 214,375, 208,371, 210,369, 207,365, 204,365, 200,361, 188,363, 188,358, 176,357, 176,357" href="/annuaire/elevage/33/<%- departmentsUrl[33] %>" title="Voir la liste des éleveurs en gironde" data-title="gironde"/>
+            <area shape="poly" class="pts-map" coords="119,163, 126,169, 137,168, 146,171, 147,171, 151,174, 152,169, 163,170, 163,170, 162,180, 166,183, 162,199, 156,203, 151,203, 148,199, 146,200, 144,198, 143,194, 135,193, 135,195, 131,195, 129,195, 127,193, 127,190, 123,189, 123,186, 122,185, 119,186, 116,181, 122,180, 121,175, 113,173,
+    111,167, 119,163, 119,163" href="/annuaire/elevage/56/<%- departmentsUrl[56] %>" title="Voir la liste des éleveurs en morbihan" data-title="morbihan"/>
+            <area shape="poly" class="pts-map" coords="163,170, 152,169, 151,174, 147,171, 146,171, 137,168, 126,169, 119,163, 118,153, 119,147, 116,142, 118,137, 123,132, 133,133, 138,134, 145,143, 145,146, 149,150, 157,144, 163,142, 165,144, 167,147, 174,153, 173,162, 164,167, 163,170, 163,170" href="/annuaire/elevage/22/<%- departmentsUrl[22] %>" title="Voir la liste des éleveurs en cotes-d-armor" data-title="cotes-d-armor"/>
+            <area shape="poly" class="pts-map" coords="173,162, 174,153, 167,147, 170,146, 174,145, 180,143, 180,148, 186,149, 188,151, 193,157, 200,154, 204,156, 200,172, 203,179, 197,186, 195,191, 187,187, 184,190, 179,189, 176,195, 162,199, 166,183, 162,180, 163,170, 164,167, 173,162, 174,153, 167,147, 173,162" href="/annuaire/elevage/35/<%- departmentsUrl[35] %>" title="Voir la liste des éleveurs en ille-et-vilaine" data-title="ille-et-vilaine"/>
+            <area shape="poly" class="pts-map" coords="80,139, 85,139, 87,135, 94,135, 95,138, 100,134, 105,133, 106,137, 111,139, 112,136, 118,137, 116,142, 119,147, 118,153, 119,163, 111,167, 113,173, 121,175, 122,180, 116,181, 114,184, 108,183, 106,182, 103,179, 103,175, 99,179, 97,172, 95,177, 92,180, 86,179, 88,173, 85,168, 81,166, 76,164,
+    83,161, 91,162, 93,160, 86,157, 82,156, 83,152, 90,154, 93,156, 95,154, 91,150, 88,149, 81,149, 75,150, 80,139" href="/annuaire/elevage/29/<%- departmentsUrl[29] %>" title="Voir la liste des éleveurs en finistere" data-title="finistere"/>
+            <area shape="poly" class="pts-map" coords="247,134, 236,140, 221,139, 213,144, 213,154, 216,158, 234,154, 237,163, 247,160, 252,161, 254,168, 261,172, 264,176, 266,169, 273,165, 269,155, 267,157, 265,148, 263,143, 255,140, 255,137, 247,134" href="/annuaire/elevage/61/<%- departmentsUrl[61] %>" title="Voir la liste des éleveurs en orne" data-title="orne"/>
+            <area shape="poly" class="pts-map" coords="209,110, 205,114, 207,117, 206,122, 211,120, 212,128, 204,141, 213,144, 221,139, 236,140, 247,134, 255,137, 257,132, 254,130, 254,112, 241,113, 238,118, 231,121, 232,118, 225,115, 209,110" href="/annuaire/elevage/14/<%- departmentsUrl[14] %>" title="Voir la liste des éleveurs en calvados" data-title="calvados"/>
+            <area shape="poly" class="pts-map" coords="188,151, 195,148, 195,143, 192,144, 188,142, 190,132, 189,126, 190,120, 188,117, 187,111, 185,110, 182,104, 182,97, 180,94, 181,93, 187,95, 189,97, 191,98, 195,97, 198,96, 202,97, 203,100, 201,103, 203,108, 201,112, 204,113, 207,117, 206,122, 211,120, 212,128, 204,141, 213,144, 213,154,
+    204,156, 200,154, 193,157, 188,151" href="/annuaire/elevage/50/<%- departmentsUrl[50] %>" title="Voir la liste des éleveurs en manche" data-title="manche"/>
+            <area shape="poly" class="pts-map" coords="257,282, 260,287, 253,303, 246,306, 246,311, 238,317, 238,322, 232,326, 226,326, 227,322, 221,317, 218,318, 219,311, 215,297, 217,293, 224,294, 227,288, 232,283, 234,279, 238,280, 246,282, 250,280, 252,283, 257,282" href="/annuaire/elevage/16/<%- departmentsUrl[16] %>" title="Voir la liste des éleveurs en charente" data-title="charente"/>
+            <area shape="poly" class="pts-map" coords="203,319, 200,312, 198,306, 194,304, 190,300, 186,297, 186,294, 190,292, 191,290, 192,288, 191,282, 193,284, 194,282, 192,275, 189,273, 191,271, 192,268, 201,269, 204,266, 206,266, 206,272, 208,276, 217,276, 227,288, 224,294, 217,293, 215,297, 219,311, 218,318, 221,317, 227,322, 226,326,
+    222,330, 216,327, 209,316, 203,319" href="/annuaire/elevage/17/<%- departmentsUrl[17] %>" title="Voir la liste des éleveurs en charente-maritime" data-title="charente-maritime"/>
+            <area shape="poly" class="pts-map" coords="238,280, 246,282, 250,280, 252,283, 257,282, 262,274, 269,273, 274,268, 264,253, 257,245, 258,238, 255,236, 253,238, 244,238, 241,230, 237,229, 233,231, 231,228, 229,232, 233,249, 231,251, 233,256, 231,268, 236,269, 235,274, 239,275, 238,280" href="/annuaire/elevage/86/<%- departmentsUrl[86] %>" title="Voir la liste des éleveurs en vienne" data-title="vienne"/>
+            <area shape="poly" class="pts-map" coords="384,421, 381,424, 376,422, 364,426, 362,429, 357,432, 353,432, 348,432, 342,437, 333,424, 326,431, 322,428, 319,427, 320,420, 321,408, 323,407, 329,411, 333,410, 334,406, 337,407, 339,399, 344,401, 350,396, 357,400, 367,396, 382,412, 381,417, 384,421" href="/annuaire/elevage/34/<%- departmentsUrl[34] %>" title="Voir la liste des éleveurs en herault" data-title="herault"/>
+            <area shape="poly" class="pts-map" coords="400,389, 404,394, 405,401, 397,406, 396,411, 389,414, 390,418, 384,421, 381,417, 382,412, 367,396, 357,400, 350,396, 351,393, 348,390, 353,387, 363,385, 371,387, 372,384, 370,379, 372,377, 372,372, 376,372, 377,379, 381,380, 385,378, 393,378, 398,383, 400,389" href="/annuaire/elevage/30/<%- departmentsUrl[30] %>" data-title="gard" title="Voir la liste des éleveurs en gard"/>
+            <area shape="poly" class="pts-map" coords="343,478, 332,474, 321,478, 307,474, 304,473, 299,476, 294,475, 288,469, 284,470, 283,462, 292,461, 299,458, 309,455, 310,453, 310,449, 318,447, 321,450, 328,448, 329,452, 336,453, 335,458, 337,464, 340,466, 343,478" href="/annuaire/elevage/66/<%- departmentsUrl[66] %>" title="Voir la liste des éleveurs en pyrenees-orientales" data-title="pyrenees-orientales"/>
+            <area shape="poly" class="pts-map" coords="318,447, 310,449, 310,453, 309,455, 299,458, 288,450, 294,443, 295,439, 292,433, 287,433, 284,428, 287,423, 289,423, 291,420, 294,421, 298,417, 300,421, 313,423, 320,420, 319,427, 322,428, 326,431, 333,424, 342,437, 339,443, 336,439, 335,441, 336,444, 336,453, 329,452, 328,448, 321,450,
+    318,447" href="/annuaire/elevage/11/<%- departmentsUrl[11] %>" title="Voir la liste des éleveurs en aude" data-title="aude"/>
+            <area shape="poly" class="pts-map" coords="261,110, 255,107, 248,108, 246,107, 250,99, 254,96, 268,90, 275,91, 283,88, 292,82, 295,86, 299,87, 305,97, 301,105, 305,110, 302,117, 286,112, 278,122, 270,119, 271,115, 261,110" href="/annuaire/elevage/76/<%- departmentsUrl[76] %>" title="Voir la liste des éleveurs en seine-maritime" data-title="seine-maritime"/>
+            <area shape="poly" class="pts-map" coords="518,405, 524,404, 524,411, 523,419,
+    527,452,   493,456, 498,455, 494,447, 491,445, 495,442, 492,439, 499,425, 508,425, 506,421, 513,417, 514,422, 516,421,
+    518,405" href="/annuaire/elevage/20/<%- departmentsUrl[20] %>"  title="Voir la liste des éleveurs en corse" data-title="corse"/>
+            <area shape="poly" class="pts-map" coords=" 527,452, 523,458, 521,471, 516,477, 521,480, 517,482, 517,488, 513,488, 511,481, 504,481, 500,477, 502,473, 504,471, 498,468, 498,460, 494,459 " href="/annuaire/elevage/20/<%- departmentsUrl[20] %>" title="Voir la liste des éleveurs en corse" data-title="corse"/>
+          </map>
+        </div>
+      </div>
+
+      <div class="row" id="most-voted"></div>
+
+    </div>
+    <div class="col-xs-12 col-sm-4 pd-top-15 txt-center">
+      <div data-format="carre" class="load-pub"></div>
+      <div class="col-xs-12 mg-top-20">
+        <h3 class="ttl-h3">Derniers éleveurs inscrits</h3>
+      </div>
+      <% var j = 0; if (users.length) {
+        users.forEach(data => {j++; %>
+        <div class="row mg-bottom-20 bloc-annonce data-small" data-name="<%- (data.details.titre ||  data.pseudo || '') %>">
+          <% if (j === 1) { %>
+          <div class="col-xs-12">
+            <a href="/mon-compte/profil/<%- (data.url || '') %>" class="bloc-home-img bloc" title="Voir les photos de l'annonce">
+              <img src="<%- (data.avatar || '/img/avatar.gif') %>" class="img-responsive mg-bottom-20" alt="<%- (data.details.titre || data.pseudo || '') %>" style="margin: auto;"/>
+            </a>
+          </div>
+          <% } %>
+          <div class="col-xs-12">
+            <p class="txt-20 mg-top-20 txt-one-up"><%- (data.details.titre || data.pseudo || '') %></p>
+            <p class="txt-four-lines txt-16 txt-justify txt-six-lines mg-top-20"><%- (data.details.description || '') %></p>
+            <a href="/mon-compte/profil/<%- (data.url || '') %>" class="btn txt-bold txt-16 mg-top-20 mg-bottom-30" title="En savoir plus sur l'annonce">Découvrir</a>
+          </div>
+        </div>
+       <% });
+       } %>
+      <div data-format="carre" class="load-pub"></div>
+    </div>
+  </div>
+  <div class="row mg-top-20 pd-60">
+    <% for (dep in departement) { %>
+    <div class="col-xs-6 col-sm-3">
+      <a href="/annuaire/elevage/<%- dep %>/<%- departmentsUrl[dep] %>" title="Voir la liste des éleveurs en Liste des éleveurs sur <%- departement[dep] %>"><%- departement[dep] %></a>
+    </div>
+    <% } %>
+
+  </div>
+</div>
+<%- partial ('../partial/pub-bottom.ejs') %>
+<%- partial ('../layout/footer.ejs') %>
+<% var json = {
+  "@context": "http://schema.org",
+  "url": "http://www.babies-pets.fr",
+  "sameAs": [
+    "https://www.facebook.com/teamBabiesPets/"
+  ],
+  "name": "Babies-pets",
+  "alternateName": "Babies-pets, annuaire d'éleveur d'animaux",
+  "url": "https://www.babies-pets.fr",
+  "@type": "ItemList",
+  "itemListElement": [],
+  "url": 'https://www.babies-pets.fr/',
+};
+var k = 0;
+for (dep in departement) {
+  k ++;
+  json.itemListElement.push({
+    "@type": "ListItem",
+    "position": k,
+    "description": 'Retrouvez la liste des éleveurs en ' + departement[dep] + ' inscrit sur babies-pets',
+    "@id": 'https://www.babies-pets.fr/annuaire/elevage/'+ dep +'/' + departement[dep],
+    "name": 'Les éleveurs - ' + departement[dep],
+    "url": 'https://www.babies-pets.fr/annuaire/elevage/'+ dep +'/' + departement[dep],
+  });
+}
+%>
+<script type="application/ld+json">
+<%- JSON.stringify(json) %>
+</script>
+<link rel="stylesheet" href="/styles/back/easy-autocomplete.min.css"/>

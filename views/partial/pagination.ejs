@@ -1,0 +1,15 @@
+<div class="pagination txt-center mg-bottom-30 float-right"><p>Pagination :
+  <%- (page > 1 ? '<a href="'+ url +'" title="Revenir à la page 1">1</a> / ' : '') %>
+  <% var prevPage = ((page * 1) - 1) %>
+  <%- (page > 2 ? '<a href="'+ url + '?page='+ prevPage + '" title="Aller à la page '+ prevPage +'">'+ prevPage +'</a> / ' : '') %>
+  <%- '<b>'+page+'</b>' %>
+  <% var nextPage = ((page * 1) + 1) %>
+  <%- (page < (nbr - 1) ? ' / <a href="'+ url + '?page='+ nextPage +'" title="Aller à la page '+ nextPage +'">'+ nextPage +'</a>' : '') %>
+  <%- (nbr > page ? ' / <a href="' + url + '?page='+nbr+'" title="Aller à la dernière page">'+nbr+'</a>' : '')
+%></p>
+<p class="pagination-btn">
+  <%- (page > 1 ? '<a href="'+ url + '?page='+ prevPage + '" title="Revenir à la page précédente" class="txt-16 txt-white btn btn-small"><i class="fas fa-caret-left fa-sm"></i></a>' : '') %>
+  <%- (page < nbr ? '<a href="'+ url + '?page='+ nextPage +'" title="Aller à la page suivante" class="txt-16 txt-white btn btn-small"><i class="fas fa-caret-right fa-sm"></i></a>' : '') %>
+</p>
+</div>
+

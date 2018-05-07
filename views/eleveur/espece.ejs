@@ -1,0 +1,47 @@
+<%- partial ('../layout/header.ejs') %>
+</div>
+<div class="container-fluid bg-cat">
+  <div class="container bg-white mg-bottom-40 pd-bottom-20 bloc-inscription">
+
+  <div class="row">
+    <div class="col-xs-12 mg-bottom-30">
+      <div class="float-right">
+        <p class="txt-center"><a href="/mon-compte/inscription" title="Créer un page sur babies-pets" class="txt-16 txt-white btn btn-small">Ajouter votre page</a></p>
+        <%- partial('../partial/pagination.ejs', {url: '/categorie/' + type, page: page }) %>
+      </div>
+      <p><a href="/" title="Revenir sur la homepage de Babies-pets">Babies-pets</a> &gt; <a href="/annuaire-eleveurs" title="Revenir sur la page principale de l'annuaire">Annuaire des éleveurs</a>  &gt; Spécialistes des <%- type %></p>
+      <h2 class="ttl-h2 bd-grey mg-top-20">Liste des spécialistes des <%- type %></h2>
+     </div>
+  </div>
+  <div class="row mg-bottom-20">
+  <% var j = -1;
+  if (data.length) {
+    data.forEach(e => { j++;
+  if (j === 8) {
+    j = 0;
+  %>
+  </div>
+  <div class="row mg-bottom-20">
+    <div class="col-sm-7 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+      <div data-format="long" class="load-pub"></div>
+    </div>
+  </div>
+  <div class="row mg-bottom-20">
+  <% } %>
+
+  <%- partial('../partial/bloc-eleveur.ejs', {data: e}) %>
+
+  <% });
+  } %>
+  </div>
+ <% if (!data.length || data.length < 5) { %>
+  <div class="row mg-bottom-20">
+    <div class="col-sm-7 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+      <div data-format="long" class="load-pub"></div>
+    </div>
+  </div>
+  <% } %>
+  <%- partial('../partial/pagination.ejs', {url: '/categorie/' + type, page: page }) %>
+</div>
+<%- partial ('../partial/pub-bottom.ejs') %>
+<%- partial ('../layout/footer.ejs') %>

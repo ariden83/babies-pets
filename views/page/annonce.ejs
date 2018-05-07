@@ -1,0 +1,223 @@
+<%- partial ('../layout/header.ejs') %>
+</div>
+<div class="container-fluid bg-cat">
+  <form class="form-annonce" method="post" id="form-annonce" enctype="multipart/form-data">
+    <div class="container mg-bottom-20">
+
+      <div class="row mg-bottom-20">
+        <div class="col-sm-6 col-xs-12">
+          <div class="row">
+            <a href="/annuaire-eleveurs" title="Retrouvez les fiches des éleveurs français" >
+              <img src="/img/eleveur.jpg" class="img-responsive" alt="Retrouvez la fiche des éleveurs français"/>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-6">
+          <div class="row">
+            <h2 class="ttl-h2 txt-center txt-white txt-bold" style="margin-top: 76px; font-size: 45px;">
+              Vous recherchez un éleveur français
+            </h2>
+            <p class="text-center txt-white txt-16"><i class="fas fa-caret-right"></i> Voir les <a href="/annuaire-eleveurs" title="Voir les profils de nos éleveurs" class="txt-white">profils des éleveurs</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mg-bottom-10">
+        <div class="col-xs-12 col-sm-6">
+          <div class="row">
+            <h2 class="ttl-h2 txt-center txt-white txt-bold" style="margin-top: 76px; font-size: 45px;">
+              Découvrez les fiches<br/>de nos compagnons
+            </h2>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+          <div class="row">
+            <a href="/especes" title="Retrouvez les fiches de vos compagnons" >
+              <img src="/img/compagnon.jpg" class="img-responsive" alt="Fiches de nos compagnons"/>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="container bg-white bloc-padding-small">
+      <div class="row">
+        <div class="col-xs-12 col-sm-9 txt-18">
+          <div class="row">
+            <div class="col-xs-12">
+            <h2 class="ttl-h2 bd-grey mg-bottom-30 txt-up">Publiez votre annonce</h2>
+          </div>
+          <div class="col-xs-12 col-sm-4">
+            <p>Catégorie *</p>
+          </div>
+          <div class="col-xs-12 col-sm-8">
+
+            <%- partial ('../partial/select-races.ejs') %>
+
+          </div>
+        </div>
+
+        <div class="row mg-top-30">
+          <div class="col-xs-12 col-sm-4">
+            <p>Titre de l'annonce *</p>
+          </div>
+          <div class="col-xs-12 col-sm-8">
+            <input type="text" value="" name="titre" class="field field-titre" data-title="titre de l'annonce"
+                   placeholder="Ex: Portée de trois chihuahuas" data-validation-length="min5" data-validation="length required"/>
+          </div>
+        </div>
+
+        <div class="row mg-top-10 field-portee">
+          <div class="col-xs-12 col-sm-4">
+            <p>Nombre de petits dans la portée *</p>
+          </div>
+          <div class="col-xs-12 col-sm-8">
+            <select id="child" name="portee" class="field-select full field-portee">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row mg-top-10 field-portee">
+          <div class="col-xs-12 col-sm-4">
+            <p>Numéro d'identification de l'animal ou celui de sa mère *</p>
+          </div>
+          <div class="col-xs-12 col-sm-8">
+            <input type="text" value="" name="animalIdent" class="field field-animalIdent" data-title="identification"
+                   placeholder="Numéro d'identification de l'animal ou de la mère" data-validation-length="min5" data-validation="length"/>
+          </div>
+        </div>
+
+        <div class="row mg-top-10">
+          <div class="col-xs-12 col-sm-4">
+            <p>Votre texte *</p>
+          </div>
+          <div class="col-xs-12 col-sm-8">
+        <textarea name="description" id="detail" cols="100" rows="8" class="field-area field-description" style="height: 400px" maxlength="4000"
+                  data-title="description l'annonce" data-validation-length="min25" data-validation="required length"
+                  placeholder="Ex: Portée de trois chihuahuas"></textarea>
+          </div>
+        </div>
+
+        <div class="row mg-top-10">
+          <div class="col-xs-12 col-sm-4">
+            <p>Prix *</p>
+          </div>
+          <div class="col-xs-12 col-sm-8">
+            <input type="text" value="" name="prix" class="field field-prix small-field bloc-inline" data-title="prix"
+                   placeholder="Ex: 500" data-validation-length="min2" data-validation="length required"/> <span class="bloc-price">€</span>
+          </div>
+        </div>
+        </div>
+
+        <%- partial ('../partial/bloc-cgu.ejs') %>
+
+      </div>
+    </div>
+    <div class="container mg-top-20 bg-white bloc-padding-small">
+
+      <div class="row">
+        <div class="col-xs-12">
+          <h3 class="ttl-h3 bd-grey txt-up">Photos de l'annonce</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-4">
+          <input name="list" value="" type="hidden" id="list-values"/>
+          <p>Télécharger vos photos *</p>
+          <p class="txt-i txt-12">* minimum deux photos requises</p>
+        </div>
+        <div class="col-xs-12 col-sm-8 mg-bottom-20">
+          <p class="btn btn-success fileinput-button mg-bottom-20">Cliquez ici
+            <input name="images" class="btn btn-success fileinput-button" id="fileupload" type="file" multiple/>
+          </p>
+
+          <div id="progress" class="progress hidden">
+            <div class="progress-bar progress-bar-success"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div id="files" class="files col-xs-12 mg-bottom-20 image_preview"></div>
+      </div>
+    </div>
+
+    <div class="container mg-top-10 bg-white bloc-padding-small">
+      <div class="row">
+        <div class="col-xs-12">
+          <h3 class="ttl-h3 bd-grey txt-up">Ajouter une vidéo youtube</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">
+          <img src="/img/YouTube-logo-full_color.png" class="img-responsive" alt="Ajouter une vidéo youtube"/>
+        </div>
+        <div class="col-xs-12 col-sm-8">
+          <p class="txt-16 mg-top-20 mg-bottom-20">Vous voulez intégrer une vidéo de votre animal ?</p>
+          <input type="text" value="" name="youtube" class="field field-youtube" data-title="lien youtube"
+                 placeholder="Ex: https://youtu.be/Bm1Yka96fU8"/>
+          <div class="col-xs-12">
+            <p class="mg-top-20">1. Sur youtube, sous votre vidéo, cliquez sur le bouton " <span class="txt-grey">partager</span> " :</p>
+            <p><img src="/img/youtube-partager.png" alt="Comment partager une vidéo youtube" class="pd-left-40"/></p>
+            <p>2. Copiez le lien, tel que " <span class="txt-grey">https://youtu.be/Bm1Yka96fU8</span> "</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <% if (!user_id) { %>
+      <%- partial ('../partial/bloc-inscription.ejs') %>
+    <% } %>
+
+    <div class="container mg-top-20 mg-bottom-20 bg-white bloc-padding-small">
+      <div class="row">
+        <div class="col-xs-12 col-sm-5 col-sm-offset-1">
+          <div class="row">
+            <div class="col-xs-12">
+              <h3 class="ttl-h3 bd-grey mg-bottom-30 txt-up">Soumettre votre annonce</h3>
+            </div>
+            <div class="col-xs-1">
+              <input class="check optin" name="from_partners" value="true" checked="" type="checkbox"/>
+            </div>
+            <div class="col-xs-11">
+              <label for="from_partners_yes" class="optinLabel">
+                Je souhaite recevoir par email les offres des partenaires de babies-pets.fr
+              </label>
+            </div>
+          </div>
+
+          <div class="row mg-top-30">
+            <div class="col-xs-12">
+              <input id="publish_button" class="btn" name="publish" value="Publier l'annnonce" type="submit"/>
+            </div>
+            <div class="col-xs-12 mg-top-30">
+              <p>
+                En cliquant sur "publier l'annonce", je confirme avoir lu et accepter les <a href="/a-propos/cgu.html" target="_blank" title="Lire les conditions générales du site babies-pets.fr">conditions générales</a> du site babies-pets.fr
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-5">
+          <img class="img-responsive" alt="Authentifiez-vous sur babies-pets pour poster vos annonces" src="/img/background/lapinou.jpg"/>
+        </div>
+      </div>
+    </div>
+  </form>
+
+<%- partial ('../partial/pub-bottom.ejs') %>
+<%- partial ('../layout/footer.ejs') %>
+
+<link rel="stylesheet" href="/styles/jquery.Jcrop.css"/>
+<link rel="stylesheet" href="/styles/trumbowyg.min.css"/>

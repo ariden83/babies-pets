@@ -1,0 +1,18 @@
+<div class="col-md-3 col-xs-12 col-sm-6 mg-bottom-20">
+  <a href="<%= (mine ? data.editurl : data.url) || '' %>" class="bloc" title="Voir les photos de l'annonce">
+    <img src="<%= data.image %>" class="img-responsive" alt="<%= data.title %>"/>
+    <div class="btn-more-photos sprite-before"><%= Object.keys(data.images).length %></div>
+    <a class="btn-favoris sprite picto-fav" href="#" id="fav-<%= data.ad_id %>" data-id="<%= data.ad_id %>"></a>
+  </a>
+  <div class="col-xs-12 bg-grey-light">
+    <p class="txt-18 txt-ttl mg-top-10"><%= data.cat + ( data.undercat !== 'default' ? ' / ' + data.undercat : '') %></p>
+    <a href="<%= (mine ? data.editurl : data.url) || '' %>" class="mg-bottom-10"  title="En savoir plus sur l'annonce">
+     <p class="txt-14 txt-justify txt-two-lines"><%- data.chapeau %></p>
+    </a>
+    <% if (data.vendu) {%>
+    <p class="txt-16 mg-top-10"><span class="txt-bold">Annonce cloturée</span></p>
+    <% } else { %>
+    <p class="txt-16 mg-top-10"><span class="txt-bold">Tarif :</span> <%= (data.price !== 'don' ? data.price + ' €' : 'non renseigné') %></p>
+    <% } %>
+  </div>
+</div>

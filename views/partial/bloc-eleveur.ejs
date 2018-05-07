@@ -1,0 +1,32 @@
+<div class="col-xs-12 col-sm-6">
+  <div class="row mg-bottom-20 bloc-annonce data-small" data-name="<%- (data.details.titre ||  data.pseudo || '') %>">
+    <div class="col-xs-4">
+      <a href="/mon-compte/profil/<%- (data.url || '') %>" class="bloc-home-img bloc" title="Voir les photos de l'annonce">
+        <img data-src="<%- (data.avatar || '/img/avatar.gif') %>" class="img-responsive mg-bottom-20 lazy" alt="<%- (data.details.titre || data.pseudo || '') %>"/>
+        <noscript>
+          <img src="<%- (data.avatar || '/img/avatar.gif') %>" class="img-responsive mg-bottom-20 lazy" alt="<%- (data.details.titre ||  data.pseudo || '') %>"/>
+        </noscript>
+      </a>
+    </div>
+    <div class="col-xs-8">
+      <p class="txt-18 txt-one-up">
+        <a href="/mon-compte/profil/<%- (data.url || '') %>" title="Voir la page de l'éleveur">
+          <%- (data.details.titre || data.pseudo || '') %> - éleveur de <%- (data.details.type || '') %>
+        </a>
+      </p>
+      <div class="sabai-directory-category">
+        <% if (data.details.categorie) { %>
+          <a href="/categorie/prestation/<%- encodeURI(data.details.categorie).toLowerCase() %>" class="pd-right-20 txt-12"><i class="fa fa-folder-open"></i> <%- data.details.categorie %></a>
+        <% } %>
+        <% if (data.details.type) { %>
+        <a href="/categorie/<%- encodeURI(data.details.type).toLowerCase() %>" class="pd-right-20 txt-12"><i class="fa fa-folder-open"></i> <%- data.details.type %></a>
+        <% } %>
+        <% if (data.details.race) { %>
+        <a href="/categorie/<%- encodeURI(data.details.type || 'chiens').toLowerCase() %>/<%- encodeURI(data.details.race).toLowerCase() %>" class="pd-right-20 txt-12"><i class="fa fa-folder-open"></i> <%- data.details.race %></a>
+        <% } %>
+      </div>
+      <p class="mg-top-20 txt-16"><% if (data.phone) { %><i class="fa fa-mobile fa-fw"></i><%- (data.phone || '') %><% } %></p>
+      <p class="txt-16"><i class="fa fa-map-marker fa-fw"></i> <%- (data.ville || '') + ' (' + (data.postal || '') + ')' %></p>
+    </div>
+  </div>
+</div>

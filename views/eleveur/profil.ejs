@@ -1,0 +1,187 @@
+<%- partial ('../layout/header.ejs') %>
+</div>
+<div class="container-fluid bg-cat">
+  <div class="container mg-top-85">
+    <div class="row">
+      <div class="col-md-8 col-xs-12">
+        <div class="row">
+          <div class="col-xs-12 bg-white bloc-padding-small">
+            <div class="row mg-top-10">
+              <div class="col-xs-12">
+                <p><a href="/annuaire-eleveurs" title="Retrouvez la liste de tous les départements">Annuaire des éleveurs</a> > <a href="/annuaire/elevage/<%= (user.departement || '') + '/' + (user.departementURL || '') %>" title="Retrouvez la liste des élevages français">Elevages de <%= (user.details.departement || '')%></a> > <%= (user.details.titre || user.pseudo || '') %></p>
+<% if (user.factice === true) { %>
+              </div>
+            </div>
+            <div class="row mg-top-10 bg-bleu mg-bottom-10">
+              <div class="col-xs-12">
+                <h2 class="txt-center txt-20 txt-white mg-top-10 mg-bottom-10"><a href="/eleveur/associer-page/<%- user.url %>" title="Modifier la page et l'associer à votre compte" class="txt-white">Vous souhaitez modifier la page</a></h2>
+              </div>
+            </div>
+            <div class="row mg-top-10">
+              <div class="col-xs-12">
+<% } %>
+                <h3 class="ttl-h3 bd-grey mg-bottom-20 txt-up mg-top-20"><%= (user.professional ?  'L\'éleveur' : 'Le particulier')%> : <%= (user.details.titre || user.pseudo || '') %>
+                  <div class="float-right txt-12 xs-float-disable mg-xs-top-10"><%- (user.details.vote ? '<i class="fas fa-heart"></i> Vous avez voté <span class="txt-bold rating">' + user.details.vote + '</span> fois' : '<i class="far fa-heart"></i> aucun vote') %></div>
+                </h3>
+              </div>
+              <% if (user.details.web) { %>
+                <div class="col-xs-7">
+                  <p class="txt-16">Visitez notre site web : <a href="<%= (user.details.web || '') %>" title="Site web de l'éleveur <%= (user.details.titre || user.pseudo || '') %>" target="_blank"><%= (user.details.titre || user.pseudo || '') %></a></p>
+                </div>
+              <% }
+              if (user.professional && user.details.siren) { %>
+              <div class="col-xs-5">
+                <p class="txt-16">Siret / Siren : <%= (user.details.siren || '') %></p>
+              </div>
+              <% } %>
+            </div>
+            <div class="row mg-top-10">
+              <div class="col-xs-12">
+                <p class="txt-16"><%- (user.details.description || '') %></p>
+              </div>
+            </div>
+            <div class="row mg-top-10">
+              <div class="col-xs-3">
+                <img src="/img/picto-carte.gif" alt="Situer la personne" class="mg-left-20 img-responsive mg-xs-left-0"/>
+              </div>
+              <div class="col-xs-8 pd-20 pd-xs-0">
+                <p class="txt-16"><span class="txt-18">Localisation :</span> <%= (user.details.adress || '') %><br/>
+                  <%= (user.ville || '' ) + ', ' + (user.postal || '') + ' ' + (user.details.departement || '') %></p>
+              </div>
+            </div>
+            <div class="row mg-top-20">
+              <div class="col-xs-12">
+                <div class="row bloc-localisation" id="map" data-size="2" data-lat="<%= (user.details.lat || '48.8642792') %>" data-long="<%= (user.details.long || '2.3341625') %>"></div>
+              </div>
+              <div class="col-xs-12 mg-top-20">
+                <a href="#" title="Partager l'annonce" class="txt-18 txt-grey btns-annonces btn-share"><span class="picto-share sprite-before"></span>Partager</a>
+                <a href="#" title="Contacter le vendeur" class="txt-18 txt-grey btns-annonces btn-write active"><span class="picto-write sprite-before"></span>Contacter</a>
+                <% if (user.phone) { %>
+                <a href="sms:<%= user.phone %>" title="Téléphoner au vendeur" class="txt-18 txt-grey btns-annonces btn-phone"  rel="nofollow"><span class="picto-phone sprite-before"></span>Téléphone</a>
+                <% } %>
+                <a href="#" class="btn-signal action-signaler sprite-before" title="Signaler l'annonce" data-id="<%= (user.user_id || '') %>" style="margin-bottom: 0px;">Signaler l'utilisateur</a>
+              </div>
+            </div>
+        </div>
+      </div>
+
+      <div class="row bg-white bloc-inscription bloc-phone mg-top-10 bloc-annonces hidden">
+        <div class="col-xs-12">
+          <h3 class="ttl-h3"><i class="fas fa-phone-square"></i> Nous téléphoner : <span class="float-right"><%= user.phone %></span></h3>
+        </div>
+      </div>
+
+      <div class="row bg-white bloc-inscription mg-top-10 bloc-share-social bloc-annonces hidden">
+        <div class="col-xs-12">
+          <h3 class="ttl-h3"><i class="fas fa-share"></i> Partager l'annonce</h3>
+          <%- partial ('../partial/bloc-share.ejs', {
+            imgShare: (user.avatar ? encodeURI('https://www.babies-pets.fr' + user.avatar) : ''),
+            urlShare: encodeURI('https://www.babies-pets.fr/mon-compte/profil/' + user.url),
+            titleShare: encodeURI(user.details.titre || user.pseudo || ''),
+            descriptionShare: encodeURI(user.details.description || '')
+          }) %>
+        </div>
+      </div>
+
+      <%- partial ('../partial/bloc-message.ejs', {id: user.user_id}) %>
+
+    </div>
+    <div class="col-md-4 col-xs-12 pd-xs-0">
+      <div class="col-xs-12">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-12 bg-white bloc-padding-small mg-bottom-10">
+            <p class="mg-top-20 txt-20 txt-ciel">Votez pour nous :
+              <button class="btn btn-small btn-rose action-vote float-right" data-id="<%= (user.url || '') %>"><i class="far fa-heart"></i> Voter</button>
+            </p>
+          </div>
+        </div>
+
+        <% if (espece) {%>
+        <div class="row bg-white bloc-padding-small mg-bottom-10">
+          <div class="row data-small">
+            <p class="txt-20 txt-ciel mg-bottom-10">Notre spécialité :</p>
+            <a href="/espece/<%- espece.type %>/<%- espece.url %>" title="Voir la fiche de <%- espece.name %>" target="_blank">
+              <img src="<%- espece.file %>" alt="<%- espece.name %>"/>
+            </a>
+            <div class="mg-left-20 mg-top-20">
+            <p class="mg-bottom-0 picto-patte sprite-before txt-20"><%- espece.name %><br/>
+              <span class="txt-16"><i class="fas fa-caret-right"></i> Voir la <a href="/espece/<%- espece.type %>/<%- espece.url %>" target="_blank">fiche descriptive</a></span></p>
+              </div>
+          </div>
+        </div>
+        <%  } %>
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-12 bg-white bloc-padding-small">
+            <p class="txt-20 txt-ciel mg-bottom-10">Notre photo de profil :</p>
+            <div class="mg-bottom-20 upload-avatar" id="my-avatar" <% if (user.avatar) { %> style="background-image: url(<%= user.avatar %>) <% } %>"></div>
+          </div>
+
+          <div class="col-xs-12 mg-top-10 bg-white mg-bottom-20">
+            <div data-format="carre" class="load-pub"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+      <% if (user.details && (user.details.images || user.details.youtube)) { %>
+      <div class="col-xs-12 bg-white bloc-padding-small mg-top-20">
+        <h2 class="ttl-h3 bd-grey mg-bottom-20">Nos photos et videos</h2>
+        <div class="row">
+        <%- partial('../partial/bloc-galery.ejs', {data: user.details || {}}) %>
+        </div>
+      </div>
+      <% } %>
+
+    </div>
+  </div>
+
+  <div class="container mg-bottom-40 mg-top-20 bg-white bloc-padding-small">
+    <div class="row">
+      <div class="col-xs-12">
+        <h2 class="ttl-h3 bd-grey mg-bottom-20">Les annonces <%= (user.professional ? "de l'éleveur" : "du particulier" ) %></h2>
+      </div>
+    </div>
+    <div class="row">
+<%  var j = 0;
+if (ads.length) {
+ads.forEach(function(e) { j++;
+  if (j%5 === 1) { %>
+      </div><div class="row">
+  <% } %>
+      <%- partial('../partial/bloc-annonce.ejs', { data: e, mine: true }) %>
+<% });
+}
+if (j%5 === 0) { %>
+    </div><div class="row">
+<% }
+for (var i = (4 - (j%4)); i > 0; i--) { %>
+  <div class="col-md-3 col-xs-12 col-sm-6 mg-bottom-20 hidden-xs">
+    <div class="bloc ">
+      <img src="/img/annonce<%= i%>.gif" alt="Déposer une annonce" class="img-responsive pd-20"/>
+    </div>
+    <p class="txt-20 txt-ttl"></p>
+    <p class="txt-16 txt-desc"></p>
+  </div>
+<% }%>
+    </div>
+  </div>
+<%- partial ('../partial/pub-bottom.ejs') %>
+<%- partial ('../layout/footer.ejs') %>
+  <% if (user.details.vote) { %>
+<script type="application/ld+json">
+        {
+          "@context": "http://schema.org/",
+          "@type": "Blog",
+          "name": "<%= (user.details.titre || user.pseudo || '') %>",
+          "image": "<%= user.avatar %>",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "bestRating": "5",
+            "ratingCount": "<%- user.details.vote%>"
+        }
+    }
+</script>
+<% } %>

@@ -1,0 +1,16 @@
+<% if (data.length) {
+  data.forEach(e => {  %>
+    <div class="col-xs-12 col-sm-3">
+      <a href="/espece/<%- e.type %>/<%- e.url%>" title="Voir la fiche détaillée du <%- e.name %>">
+
+        <img src="<%- e.file %>" class="img-responsive mg-bottom-20" alt="Fiche détaillée de <%- e.name %>"/>
+      </a>
+      <p class="txt-fiche"><b>Fiche</b>: <a href="/espece/<%- e.type %>/<%- e.url%>" title="Voir la fiche détaillée du <%- e.name %>"><%- e.name  %></a></p>
+    </div>
+<% });
+} %>
+<div class="row mg-bottom-30">
+  <div class="col-sm-7 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+    <div data-format="long" class="load-pub"></div>
+  </div>
+</div>

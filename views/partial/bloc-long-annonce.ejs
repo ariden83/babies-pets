@@ -1,0 +1,37 @@
+<div class="row mg-bottom-20 bloc-annonce bloc-<%= data.cat %> data-small data-<%= data.cat %> data-<%= (data.professional ? 'professional' : 'particulier') %>"
+     data-page="<%- data.page || 1 %>"
+     data-name="<%= data.title %>"
+     data-lat="<%= data.lat %>"
+     data-long="<%= data.long %>"
+     id="<%= data.ad_id %>"
+     data-price="<%= (data.price !== 'don' ? data.price : 'don') %>">
+  <div class="col-xs-12 col-sm-3">
+    <a href="<%= data.url %>" class="bloc-home-img bloc" title="Voir les photos de l'annonce">
+      <img data-src="<%= data.image %>" class="img-responsive mg-bottom-20 lazy" alt="<%= data.title %>"/>
+      <noscript>
+        <img src="<%= data.image %>" class="img-responsive mg-bottom-20 lazy" alt="<%= data.title %>"/>
+      </noscript>
+      <div class="btn-more-photos sprite-before"><%= Object.keys(data.images).length %></div>
+    </a>
+    <a class="btn-favoris sprite picto-fav" href="#" id="fav-<%= data.ad_id %>" data-id="<%= data.ad_id %>"></a>
+  </div>
+  <div class="col-xs-12 col-sm-8">
+    <% var adDate = new Date(data.createdAt); %>
+    <p class="txt-right txt-12 mg-bottom-0"><%= adDate.getDate() + '/' + (adDate.getMonth() + 1) + '/' + adDate.getFullYear() %><br/><%= data.details.departement || data.departement || ''%></p>
+    <% if (data.undercat !== 'default') { %><p class="txt-20 mg-top-20-"><span class="txt-bold">Race : </span><%= data.undercat %></p><% } %>
+    <p class="txt-16 <%= (data.undercat !== 'default' ? '' : 'mg-top-20-')%>"><%= data.title %></p>
+    <p class="txt-four-lines txt-16 txt-justify txt-six-lines mg-top-30"><%- data.description %></p>
+    <div class="row mg-top-40">
+      <div class="col-xs-12 col-sm-7">
+        <% if (data.vendu) {%>
+        <p class="txt-18"><span class="txt-bold">Annonce cloturée</span></p>
+        <% } else { %>
+        <p class="txt-18"><span class="txt-bold">Tarif :</span> <%= (data.price !== 'don' ? data.price + ' €' : 'non renseigné') %></p>
+        <% } %>
+      </div>
+      <div class="col-xs-12 col-sm-5">
+        <a href="<%= data.url %>" class="btn float-right txt-bold txt-16" style="margin-right: 5px;" title="En savoir plus sur l'annonce">Découvrir</a>
+      </div>
+    </div>
+  </div>
+</div>
