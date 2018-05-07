@@ -1,0 +1,92 @@
+<%- partial ('../layout/header.ejs') %>
+</div>
+<div class="container-fluid bg-cat">
+  <div class="container mg-bottom-40">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8">
+        <div class="row">
+          <img src="<%- img %>" alt="Fiche de la race <%- data.name %>" />
+        </div>
+        <div class="row bloc-inscription bg-white">
+          <div class="col-xs-12">
+            <p class="txt-18 txt-race">
+              <span class="txt-bold">Espèce / Race :</span> <a href="/especes/<%= data.type %>" title="Revenir à la liste des <%= data.type %>"><%= data.type.charAt(0).toUpperCase() + data.type.slice(1) %></a> / <%= data.name.charAt(0).toUpperCase() + data.name.slice(1) %>
+            </p>
+            <h2 class="ttl-h3 mg-top-40"><%- data.name %></h2>
+            <p itemprop="description" id="descriptions"><%- data.description %></p>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="row">
+                <div data-format="long" class="load-pub row mg-top-40"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12">
+            <h2 class="ttl-h3 mg-top-40 mg-bottom-20" id="information">Informations sur la race</h2>
+          </div>
+          <% if (data.hauteur) { %>
+          <div class="col-xs-6"><p class="mg-bottom-10 picto-patte sprite-before txt-16">Taille: <%- data.hauteur %></p></div>
+          <% } %>
+          <div class="col-xs-6"><p class="mg-bottom-10 picto-patte sprite-before txt-16">Poils: <%- data.poil %></p></div>
+          <div class="col-xs-6"><p class="mg-bottom-10 picto-patte sprite-before txt-16">Poid: <%- data.poid %></p></div>
+          <div class="col-xs-6"><p class="mg-bottom-10 picto-patte sprite-before txt-16">Sociabilité: <%- data.sociabilite %></p></div>
+          <div class="col-xs-6"><p class="mg-bottom-10 picto-patte sprite-before txt-16">Esperance de vie: <%- data.esperance %></p></div>
+          <% if (data.queue) { %>
+          <div class="col-xs-6"><p class="mg-bottom-10 picto-patte sprite-before txt-16">Queue: <%- data.queue %></p></div>
+          <% } %>
+          <div class="col-xs-6"><p class="mg-bottom-10 picto-patte sprite-before txt-16">Robe: <%- data.robe %></p></div>
+          <% if (data.race === 'chiens') { %>
+          <div class="col-xs-6"><p class="mg-bottom-10 picto-patte sprite-before txt-16"><a href="/especes/chiens/groupes-de-race" title="Voir les informations sur les groupes de race">Groupe: <%- data.group %></a></p></div>
+          <% } %>
+          <div class="col-xs-12">
+            <h2 class="ttl-h3 mg-top-40" id="caracteristique">Caractéristiques physiques</h2>
+            <p><%- data.caracteristic %></p>
+            <h2 class="ttl-h3 mg-top-40" id="sante">Santé</h2>
+            <p><%- data.sante %></p>
+
+            <h2 class="ttl-h3 mg-top-40" id="caractere">Caractère</h2>
+            <p><%- data.caractere %></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <div class=" bg-white bloc-padding-small">
+          <div class="row">
+            <h3 class="ttl-h3">Navigation <i class="fas fa-bars float-right"></i></h3>
+            <div class="txt-16 mg-left-20">
+            <p><a href="#fiche" title="Fiche du <%- data.name %>"><i class="fas fa-caret-right"></i> Le <%- data.name %></a></p>
+            <p><a href="#information" title="Information sur la race"><i class="fas fa-caret-right"></i> Information sur la race</a></p>
+            <p><a href="#caracteristique" title="Caractéristiques physiques sur la race"><i class="fas fa-caret-right"></i> Caractéristiques physiques</a></p>
+            <p><a href="#sante" title="Santé du <%- data.name %>"><i class="fas fa-caret-right"></i> Santé</a></p>
+            <p><a href="#caractere" title="Caractère du <%- data.name %>"><i class="fas fa-caret-right"></i> Caractère</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12 mg-top-20">
+            <div data-format="carre" class="load-pub"></div>
+          </div>
+        </div>
+        <% if (other && other.length) { %>
+        <div class=" bg-white bloc-padding-small mg-top-20">
+          <div class="row">
+            <h3 class="ttl-h3">Fiches similaires</h3>
+            <div id="others" data-id="<%- data.id%>"></div>
+          </div>
+          <% other.forEach(data => { %>
+          <div class="row mg-bottom-20 data-small">
+            <a href="/espece/<%- data.type %>/<%- data.url %>" title="Voir la fiche de <%- data.name %>">
+             <img src="<%- data.file %>" alt="<%- data.name %>"/>
+            </a>
+            <p class="txt-16 txt-fiche mg-top-20"><b><i class="fas fa-caret-right"></i> Fiche</b>: <a href="/espece/<%- data.type %>/<%- data.url %>" title="Voir la fiche de <%- data.name %>"><%- data.name %></a></p>
+          </div>
+          <% });  %>
+        </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+<%- partial ('../partial/pub-bottom.ejs') %>
+<%- partial ('../layout/footer.ejs') %>

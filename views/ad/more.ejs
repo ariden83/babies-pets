@@ -1,0 +1,11 @@
+<% if (data && data.length) {
+data.forEach(e => {
+  e.page = currentPage; %>
+<%- partial('../partial/bloc-long-annonce.ejs', {data: e}) %>
+<% }); %>
+<div class="row mg-bottom-20">
+  <div class="col-sm-7 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+    <div data-format="long" class="load-pub"></div>
+  </div>
+</div>
+<% } %>

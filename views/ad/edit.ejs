@@ -1,0 +1,623 @@
+<%- partial ('../layout/header.ejs') %>
+</div>
+
+<div class="container-fluid bg-cat">
+  <form class="form-annonce" method="post" id="form-annonce" enctype="multipart/form-data" data-id="<%= data.ad_id %>">
+
+    <div class="container mg-bottom-40 bg-white bloc-padding-small">
+      <div class="row">
+
+        <div class="col-xs-12">
+          <div class="row">
+            <div class="col-xs-9">
+              <p class="txt-14 mg-top-10"><a href="/mon-compte" title="Revenir sur votre profil">Votre compte</a> > Votre annonce "<%= (data.title || '') %>"</p>
+              <h2 class="ttl-h3 bd-grey mg-bottom-20 txt-up mg-top-20">Modifier votre annonce</h2>
+            </div>
+            <div class="col-xs-3 mg-bottom-20">
+              <a href="<%= data.url %>" title="Voir l'annonce" class="btn mg-bottom-20">Voir l'annonce</a>
+              <label class="label mg-bottom-0" style="padding: 0">
+                <p class="container-cgu-small mg-bottom-0 txt-grey txt-18" style="color: rgb(51, 51, 51); font-weight: normal; font-size: 20px;">
+                  <input name="cloture" id="cloture"  class="input-cgu action-search-checkbx" <%- (data.vendu ? 'checked=""' : '') %> type="checkbox">
+                  <label class="bloc-cgu bloc-cgu-small " for="cloture" style="color: #000"></label>Cloturer cette annonce</p>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-9 txt-20">
+          <div class="row">
+            <div class="col-xs-4">
+              <p>Espèce / race *</p>
+            </div>
+            <div class="col-xs-8">
+              <% if (data.cat === 'chiens') { %>
+              <select id="chien" name="undertype" class="field-select select-chiens undetype field-chiens full">
+                <option value="<%= data.undercat %>"><%= data.undercat %></option>
+                <option value="Affenpinscher">Affenpinscher</option>
+                <option value="American Staffordshire Terrier">American Staffordshire Terrier</option>
+                <option value="Airedale Terrier">Airedale Terrier</option>
+                <option value="Anglo-Français de petite vénerie">Anglo-Français de petite vénerie</option>
+                <option value="Akita américain">Akita américain</option>
+                <option value="Ariégeois">Ariégeois</option>
+                <option value="Akita Inu">Akita Inu</option>
+                <option value="Azawakh">Azawakh</option>
+                <option value="Bangkaew de Thailande">Bangkaew de Thailande</option>
+                <option value="Barbet">Barbet</option>
+                <option value="Barbu Tchèque">Barbu Tchèque</option>
+                <option value="Barzoi">Barzoi</option>
+                <option value="Basenji">Basenji</option>
+                <option value="Basset Artesien Normand">Basset Artesien Normand</option>
+                <option value="Basset bleu de Gascogne">Basset bleu de Gascogne</option>
+                <option value="Basset de Westphalie">Basset de Westphalie</option>
+                <option value="Basset des Alpes">Basset des Alpes</option>
+                <option value="Basset fauve de Bretagne">Basset fauve de Bretagne</option>
+                <option value="Basset Hound">Basset Hound</option>
+                <option value="Beagle">Beagle</option>
+                <option value="Beagle Harrier">Beagle Harrier</option>
+                <option value="Bearded Collie">Bearded Collie</option>
+                <option value="Beauceron">Beauceron</option>
+                <option value="Bedlington Terrier">Bedlington Terrier</option>
+                <option value="Berger Allemand">Berger Allemand</option>
+                <option value="Berger Australien">Berger Australien</option>
+                <option value="Berger Belge">Berger Belge</option>
+                <option value="Berger blanc Suisse">Berger blanc Suisse</option>
+                <option value="Berger Catalan">Berger Catalan</option>
+                <option value="Berger d'Anatolie">Berger d'Anatolie</option>
+                <option value="Berger d'Asie Centrale">Berger d'Asie Centrale</option>
+                <option value="Berger d'Islande">Berger d'Islande</option>
+                <option value="Berger de Bergame">Berger de Bergame</option>
+                <option value="Berger de Brie">Berger de Brie</option>
+                <option value="Berger de l'Atlas">Berger de l'Atlas</option>
+                <option value="Berger de la Maremme et des Abruzzes">Berger de la Maremme et des Abruzzes</option>
+                <option value="Berger de Picardie">Berger de Picardie</option>
+                <option value="Berger de Russie">Berger de Russie</option>
+                <option value="Berger Shetland">Berger Shetland</option>
+                <option value="Berger du Caucase">Berger du Caucase</option>
+                <option value="Berger du massif du Karst">Berger du massif du Karst</option>
+                <option value="Berger finnois de Laponie">Berger finnois de Laponie</option>
+                <option value="Berger hollandais">Berger hollandais</option>
+                <option value="Berger polonais de plaine">Berger polonais de plaine</option>
+                <option value="Berger polonais de Podhale">Berger polonais de Podhale</option>
+                <option value="Berger portugais">Berger portugais</option>
+                <option value="Berger yougoslave">Berger yougoslave</option>
+                <option value="Bichon à poil frisé">Bichon à poil frisé</option>
+                <option value="Bichon Polonais">Bichon Polonais</option>
+                <option value="Bichon havanais">Bichon havanais</option>
+                <option value="Bichon maltais">Bichon maltais</option>
+                <option value="Billy">Billy</option>
+                <option value="Black and tan Coonhound">Black and tan Coonhound</option>
+                <option value="Bleu de Gascogne">Bleu de Gascogne</option>
+                <option value="Bobtail">Bobtail</option>
+                <option value="Border Collie">Border Collie</option>
+                <option value="Border Terrier">Border Terrier</option>
+                <option value="Bouledogue français">Bouledogue français</option>
+                <option value="Bouvier Bernois">Bouvier Bernois</option>
+                <option value="Bouvier d'Appenzell">Bouvier d'Appenzell</option>
+                <option value="Bouvier d'Australie">Bouvier d'Australie</option>
+                <option value="Bouvier de l'Entlebuch">Bouvier de l'Entlebuch</option>
+                <option value="Bouvier des Ardennes">Bouvier des Ardennes</option>
+                <option value="Bouvier des Flandres">Bouvier des Flandres</option>
+                <option value="Boxer">Boxer</option>
+                <option value="Braque du Bourbonnais">Braque du Bourbonnais</option>
+                <option value="Brachet allemand">Brachet allemand</option>
+                <option value="Brachet autrichien noir et feu">Brachet autrichien noir et feu</option>
+                <option value="Brachet de Styrie à poil dur">Brachet de Styrie à poil dur</option>
+                <option value="Brachet polonais">Brachet polonais</option>
+                <option value="Brachet tyrolien">Brachet tyrolien</option>
+                <option value="Braque allemand à poil court">Braque allemand à poil court</option>
+                <option value="Braque allemand à poil dur">Braque allemand à poil dur</option>
+                <option value="Braque d'Auvergne">Braque d'Auvergne</option>
+                <option value="Braque de Burgos">Braque de Burgos</option>
+                <option value="Braque de l'Ariège">Braque de l'Ariège</option>
+                <option value="Braque de Weimar">Braque de Weimar</option>
+                <option value="Braque du Bourbonnais">Braque du Bourbonnais</option>
+                <option value="Braque français">Braque français</option>
+                <option value="Braque hongrois à poil court">Braque hongrois à poil court</option>
+                <option value="Braque italien">Braque italien</option>
+                <option value="Braque Saint-Germain">Braque Saint-Germain</option>
+                <option value="Braque slovaque à poil dur">Braque slovaque à poil dur</option>
+                <option value="Briquet Griffon vendéen">Briquet Griffon vendéen</option>
+                <option value="Broholmer">Broholmer</option>
+                <option value="Buhund norvégien">Buhund norvégien</option>
+                <option value="Bull Terrier">Bull Terrier</option>
+                <option value="Bulldog">Bulldog</option>
+                <option value="Bullmastiff">Bullmastiff</option>
+                <option value="Cairn Terrier">Cairn Terrier</option>
+                <option value="Cane Corso">Cane Corso</option>
+                <option value="Caniche">Caniche</option>
+                <option value="Carlin">Carlin</option>
+                <option value="Cavalier King Charles">Cavalier King Charles</option>
+                <option value="Chesapeake Bay Retriever">Chesapeake Bay Retriever</option>
+                <option value="Chien chinois à crête">Chien chinois à crête</option>
+                <option value="Chien courant d'Istrie">Chien courant d'Istrie</option>
+                <option value="Chien courant de Bosnie">Chien courant de Bosnie</option>
+                <option value="Chien courant de Halden">Chien courant de Halden</option>
+                <option value="Chien courant de Hygen">Chien courant de Hygen</option>
+                <option value="Chien courant de Posavatz">Chien courant de Posavatz</option>
+                <option value="Chien courant de Transylvanie">Chien courant de Transylvanie</option>
+                <option value="Chien courant espagnol">Chien courant espagnol</option>
+                <option value="Chien courant finnois">Chien courant finnois</option>
+                <option value="Chien courant hellénique">Chien courant hellénique</option>
+                <option value="Chien courant italien">Chien courant italien</option>
+                <option value="Chien courant serbe">Chien courant serbe</option>
+                <option value="Chien courant slovaque">Chien courant slovaque</option>
+                <option value="Chien courant suisse">Chien courant suisse</option>
+                <option value="Chien courant yougoslave">Chien courant yougoslave</option>
+                <option value="Chien d'arrêt allemand à poil long">Chien d'arrêt allemand à poil long</option>
+                <option value="Chien d'arrêt portugais">Chien d'arrêt portugais</option>
+                <option value="Chien d'Artois">Chien d'Artois</option>
+                <option value="Chien d'eau américain">Chien d'eau américain</option>
+                <option value="Chien d'eau espagnol">Chien d'eau espagnol</option>
+                <option value="Chien d'eau frison">Chien d'eau frison</option>
+                <option value="Chien d'eau irlandais">Chien d'eau irlandais</option>
+                <option value="Chien d'eau portugais">Chien d'eau portugais</option>
+                <option value="Chien d'eau romagnol">Chien d'eau romagnol</option>
+                <option value="Chien d'élan suédois">Chien d'élan suédois</option>
+                <option value="Chien d'élan norvégien">Chien d'élan norvégien</option>
+                <option value="Chien d'ours de Carélie">Chien d'ours de Carélie</option>
+                <option value="Chien d'Oysel">Chien d'Oysel</option>
+                <option value="Chien de berger de Croatie">Chien de berger de Croatie</option>
+                <option value="Chien de berger de Majorque">Chien de berger de Majorque</option>
+                <option value="Chien de Canaan">Chien de Canaan</option>
+                <option value="Chien de montagne des Pyrénées">Chien de montagne des Pyrénées</option>
+                <option value="Chien de montagne portugais">Chien de montagne portugais</option>
+                <option value="Chien de Saint-Hubert">Chien de Saint-Hubert</option>
+                <option value="Chien de Taïwan">Chien de Taïwan</option>
+                <option value="Chien du Groenland">Chien du Groenland</option>
+                <option value="Chien du Pharaon">Chien du Pharaon</option>
+                <option value="Chien finnois de Laponie">Chien finnois de Laponie</option>
+                <option value="Chien norvégien de Macareux">Chien norvégien de Macareux</option>
+                <option value="Chien nu du Pérou">Chien nu du Pérou</option>
+                <option value="Chien nu mexicain">Chien nu mexicain</option>
+                <option value="Chien rouge de Bavière">Chien rouge de Bavière</option>
+                <option value="Chien rouge de Hanovre">Chien rouge de Hanovre</option>
+                <option value="Chien suédois de Laponie">Chien suédois de Laponie</option>
+                <option value="Chien thaïlandais">Chien thaïlandais</option>
+                <option value="Chien loup de Saarloos">Chien loup de Saarloos</option>
+                <option value="Chien loup tchèque">Chien loup tchèque</option>
+                <option value="Chihuahua">Chihuahua</option>
+                <option value="Chow-Chow">Chow-Chow</option>
+                <option value="Cirneco de l'Etna">Cirneco de l'Etna</option>
+                <option value="Clumber Spaniel">Clumber Spaniel</option>
+                <option value="Cocker américain">Cocker américain</option>
+                <option value="Cocker anglais">Cocker anglais</option>
+                <option value="Colley à poil court">Colley à poil court</option>
+                <option value="Colley à poil long">Colley à poil long</option>
+                <option value="Coton de Tuléar">Coton de Tuléar</option>
+                <option value="Curly-Coated Retriever">Curly-Coated Retriever</option>
+                <option value="Dalmatien">Dalmatien</option>
+                <option value="Dandie Dinmont Terrier">Dandie Dinmont Terrier</option>
+                <option value="Dobermann">Dobermann</option>
+                <option value="Dogo Canario">Dogo Canario</option>
+                <option value="Dogue allemand">Dogue allemand</option>
+                <option value="Dogue argentin">Dogue argentin</option>
+                <option value="Dogue de Bordeaux">Dogue de Bordeaux</option>
+                <option value="Dogue de Majorque">Dogue de Majorque</option>
+                <option value="Dogue du Tibet">Dogue du Tibet</option>
+                <option value="Drever">Drever</option>
+                <option value="Dunker">Dunker</option>
+                <option value="Épagneul à perdrix de Drente">Épagneul à perdrix de Drente</option>
+                <option value="Épagneul Bleu Picard">Épagneul Bleu Picard</option>
+                <option value="Épagneul Breton">Épagneul Breton</option>
+                <option value="Epagneul de Saint-Usuge">Epagneul de Saint-Usuge</option>
+                <option value="Épagneul du Tibet (Tibetan Spaniel)">Épagneul du Tibet (Tibetan Spaniel)</option>
+                <option value="Épagneul français">Épagneul français</option>
+                <option value="Épagneul Japonais (Tchin)">Épagneul Japonais (Tchin)</option>
+                <option value="Épagneul Nain Continental (Papillon)">Épagneul Nain Continental (Papillon)</option>
+                <option value="Épagneul Nain Continental Phalène">Épagneul Nain Continental Phalène</option>
+                <option value="Épagneul Picard">Épagneul Picard</option>
+                <option value="Épagneul Pont-Audemer">Épagneul Pont-Audemer</option>
+                <option value="Eurasier">Eurasier</option>
+                <option value="Field Spaniel">Field Spaniel</option>
+                <option value="Fila Brasileiro">Fila Brasileiro</option>
+                <option value="Fox Terrier à poil dur">Fox Terrier à poil dur</option>
+                <option value="Fox Terrier à poil lisse">Fox Terrier à poil lisse</option>
+                <option value="Foxhound Américain">Foxhound Américain</option>
+                <option value="Foxhound Anglais">Foxhound Anglais</option>
+                <option value="Français blanc et noir">Français blanc et noir</option>
+                <option value="Français Blanc et Orange">Français Blanc et Orange</option>
+                <option value="Français Tricolore">Français Tricolore</option>
+                <option value="Golden Retriever">Golden Retriever</option>
+                <option value="Grand Anglo Français Blanc et Noir">Grand Anglo Français Blanc et Noir</option>
+                <option value="Grand Anglo Français Blanc et Orange">Grand Anglo Français Blanc et Orange</option>
+                <option value="Grand Anglo Français tricolore">Grand Anglo Français tricolore</option>
+                <option value="Grand Basset Griffon Vendéen">Grand Basset Griffon Vendéen</option>
+                <option value="Grand Bouvier Suisse">Grand Bouvier Suisse</option>
+                <option value="Grand Gascon Saintongeois">Grand Gascon Saintongeois</option>
+                <option value="Grand Griffon Vendéen">Grand Griffon Vendéen</option>
+                <option value="Grand Munsterlander">Grand Munsterlander</option>
+                <option value="Greyhound">Greyhound</option>
+                <option value="Griffon à poil Laineux">Griffon à poil Laineux</option>
+                <option value="Griffon à poils durs Korthals">Griffon à poils durs Korthals</option>
+                <option value="Griffon Belge">Griffon Belge</option>
+                <option value="Griffon bleu de Gascogne">Griffon bleu de Gascogne</option>
+                <option value="Griffon Bruxellois">Griffon Bruxellois</option>
+                <option value="Griffon Fauve de Bretagne">Griffon Fauve de Bretagne</option>
+                <option value="Griffon Nivernais">Griffon Nivernais</option>
+                <option value="Hamilton Stovare">Hamilton Stovare</option>
+                <option value="Harrier">Harrier</option>
+                <option value="Hokkaïdo">Hokkaïdo</option>
+                <option value="Hovawart">Hovawart</option>
+                <option value="Husky Sibérien">Husky Sibérien</option>
+                <option value="Irish Glen of Imaal Terrier">Irish Glen of Imaal Terrier</option>
+                <option value="Irish Terrier">Irish Terrier</option>
+                <option value="Irish Terrier à poil doux">Irish Terrier à poil doux</option>
+                <option value="Jack Russell Terrier">Jack Russell Terrier</option>
+                <option value="Jagd Terrier">Jagd Terrier</option>
+                <option value="Kai">Kai</option>
+                <option value="Kelpie">Kelpie</option>
+                <option value="Kerry Blue Terrier">Kerry Blue Terrier</option>
+                <option value="King Charles Spaniel (Epagneul King Charles)">King Charles Spaniel (Epagneul King Charles)</option>
+                <option value="Kishu">Kishu</option>
+                <option value="Komondor">Komondor</option>
+                <option value="Korea Jindo Dog">Korea Jindo Dog</option>
+                <option value="Kromfohrlander">Kromfohrlander</option>
+                <option value="Kuvasz">Kuvasz</option>
+                <option value="Kyi Leo">Kyi Leo</option>
+                <option value="Labrador Retriever">Labrador Retriever</option>
+                <option value="Laika de Sibérie Occidentale">Laika de Sibérie Occidentale</option>
+                <option value="Laika de Sibérie Orientale">Laika de Sibérie Orientale</option>
+                <option value="Laika Russo Européen">Laika Russo Européen</option>
+                <option value="Lakeland Terrier">Lakeland Terrier</option>
+                <option value="Landseer">Landseer</option>
+                <option value="Leonberg">Leonberg</option>
+                <option value="Lévrier Afghan">Lévrier Afghan</option>
+                <option value="Lévrier Écossais">Lévrier Écossais</option>
+                <option value="Lévrier Espagnol Galgo">Lévrier Espagnol Galgo</option>
+                <option value="Lévrier Hongrois">Lévrier Hongrois</option>
+                <option value="Lévrier Irlandais">Lévrier Irlandais</option>
+                <option value="Lévrier Polonais">Lévrier Polonais</option>
+                <option value="Lhassa Apso">Lhassa Apso</option>
+                <option value="Lion d'Occitanie">Lion d'Occitanie</option>
+                <option value="Malamute de l'Alaska">Malamute de l'Alaska</option>
+                <option value="Mastiff">Mastiff</option>
+                <option value="Mâtin de Naples">Mâtin de Naples</option>
+                <option value="Mâtin des Pyrénées">Mâtin des Pyrénées</option>
+                <option value="Mâtin Espagnol">Mâtin Espagnol</option>
+                <option value="Montagne des Pyrénées">Montagne des Pyrénées</option>
+                <option value="Mudi">Mudi</option>
+                <option value="Norfolk Terrier">Norfolk Terrier</option>
+                <option value="Norwich Terrier">Norwich Terrier</option>
+                <option value="Otterhound">Otterhound</option>
+                <option value="Papillon (Epagneul nain continental)">Papillon (Epagneul nain continental)</option>
+                <option value="Parson Russell Terrier">Parson Russell Terrier</option>
+                <option value="Pékinois">Pékinois</option>
+                <option value="Petit Basset Griffon">Petit Basset Griffon</option>
+                <option value="Petit Brabançon">Petit Brabançon</option>
+                <option value="Petit chien lion">Petit chien lion</option>
+                <option value="Petit Gascon Saintongeois">Petit Gascon Saintongeois</option>
+                <option value="Petit Lévrier italien">Petit Lévrier italien</option>
+                <option value="Pinscher (nain)">Pinscher (nain)</option>
+                <option value="Podenco Canario">Podenco Canario</option>
+                <option value="Podenco Ibicenco">Podenco Ibicenco</option>
+                <option value="Podenco Portugais">Podenco Portugais</option>
+                <option value="Pointer">Pointer</option>
+                <option value="Poitevin">Poitevin</option>
+                <option value="Porcelaine">Porcelaine</option>
+                <option value="Pudelpointer">Pudelpointer</option>
+                <option value="Puli">Puli</option>
+                <option value="Pumi">Pumi</option>
+                <option value="Rafeiro de l'Alentejo (Bouvier de l'Alentejo)">Rafeiro de l'Alentejo (Bouvier de l'Alentejo)</option>
+                <option value="Retriever à poil plat">Retriever à poil plat</option>
+                <option value="Retriever de la Nouvelle-écosse">Retriever de la Nouvelle-écosse</option>
+                <option value="Rhodesian Ridgeback">Rhodesian Ridgeback</option>
+                <option value="Rottweiler">Rottweiler</option>
+                <option value="Saint Bernard">Saint Bernard</option>
+                <option value="Saluki">Saluki</option>
+                <option value="Samoyède">Samoyède</option>
+                <option value="Schapendoes Néerlandais">Schapendoes Néerlandais</option>
+                <option value="Schiller stövare">Schiller stövare</option>
+                <option value="Schipperke">Schipperke</option>
+                <option value="Schnauzer">Schnauzer</option>
+                <option value="Scottish terrier">Scottish terrier</option>
+                <option value="Sealyham terrier">Sealyham terrier</option>
+                <option value="Setter anglais">Setter anglais</option>
+                <option value="Setter Gordon">Setter Gordon</option>
+                <option value="Setter irlandais">Setter irlandais</option>
+                <option value="Shar pei">Shar pei</option>
+                <option value="Shiba inu">Shiba inu</option>
+                <option value="Shih Tzu">Shih Tzu</option>
+                <option value="Shikoku">Shikoku</option>
+                <option value="Silky terrier">Silky terrier</option>
+                <option value="Sky terrier">Sky terrier</option>
+                <option value="Sloughi">Sloughi</option>
+                <option value="Slovensky cuvac">Slovensky cuvac</option>
+                <option value="Smous des Pays bas">Smous des Pays bas</option>
+                <option value="Spinone">Spinone</option>
+                <option value="Spitz allemand">Spitz allemand</option>
+                <option value="Spitz de norrbotten">Spitz de norrbotten</option>
+                <option value="Spitz des wisigoths">Spitz des wisigoths</option>
+                <option value="Spitz finlandais">Spitz finlandais</option>
+                <option value="Spitz japonais">Spitz japonais</option>
+                <option value="Springer anglais">Springer anglais</option>
+                <option value="Springer gallois">Springer gallois</option>
+                <option value="Stabyhoun">Stabyhoun</option>
+                <option value="Sussex spaniel">Sussex spaniel</option>
+                <option value="Teckel">Teckel</option>
+                <option value="Terre-Neuve">Terre-Neuve</option>
+                <option value="Terrier Australien">Terrier Australien</option>
+                <option value="Terrier Brésilien">Terrier Brésilien</option>
+                <option value="Terrier de Boston">Terrier de Boston</option>
+                <option value="Terrier Japonais">Terrier Japonais</option>
+                <option value="Terrier Noir Russe">Terrier Noir Russe</option>
+                <option value="Terrier Tchèque">Terrier Tchèque</option>
+                <option value="Terrier Tibétain">Terrier Tibétain</option>
+                <option value="Tosa">Tosa</option>
+                <option value="Toy Terrier">Toy Terrier</option>
+                <option value="Volpino italien">Volpino italien</option>
+                <option value="Welsh corgi">Welsh corgi</option>
+                <option value="Welsh Springer spaniel">Welsh Springer spaniel</option>
+                <option value="Welsh Terrier">Welsh Terrier</option>
+                <option value="West highland white terrier">West highland white terrier</option>
+                <option value="Whippet">Whippet</option>
+              </select>
+            <% } else if (data.cat === 'oiseaux') { %>
+              <select id="oiseaux" name="undertype" class="field-select select-oiseaux undetype field-oiseaux full">
+                <option value="<%= data.undercat %>"><%= data.undercat %></option>
+                <option value="Cailles et Faisans">Cailles et Faisans</option>
+                <option value="Canaris">Canaris</option>
+                <option value="Canard">Canard</option>
+                <option value="Colombe">Colombe</option>
+                <option value="Cordon bleu">Cordon bleu</option>
+                <option value="Dinde">Dinde</option>
+                <option value="Diamant de gould">Diamant de gould</option>
+                <option value="Grandes perruches">Grandes perruches</option>
+                <option value="Moineau du japon">Moineau du japon</option>
+                <option value="Oie">Oie</option>
+                <option value="Padda de Java">Padda de Java</option>
+                <option value="Perroquet">Perroquet</option>
+                <option value="Petites perruches">Petites perruches</option>
+                <option value="Pigeon">Pigeon</option>
+                <option value="Pintade">Pintade</option>
+                <option value="Poule">Poule</option>
+                <option value="Pinson mandarin">Pinson mandarin</option>
+                <option value="Serin du Mozambique">Serin du Mozambique</option>
+              </select>
+              <% } else if (data.cat === 'rongeurs') { %>
+              <select id="rongeurs" name="undertype" class="field-select select-rongeurs undetype field-rongeurs full">
+                <option value="<%= data.undercat %>"><%= data.undercat %></option>
+                <option value="Chinchilla">Chinchilla</option>
+                <option value="Cochon d'inde">Cochon d'inde</option>
+                <option value="Ecureuil">Ecureuil</option>
+                <option value="Écureuil roux">Écureuil roux</option>
+                <option value="Furet">Furet</option>
+                <option value="Gerbille">Gerbille</option>
+                <option value="Gerboise">Gerboise</option>
+                <option value="Hamster">Hamster</option>
+                <option value="Lapin">Lapin</option>
+                <option value="Mulot">Mulot</option>
+                <option value="Octodon">Octodon</option>
+                <option value="Rat">Rat</option>
+                <option value="Souris">Souris</option>
+              </select>
+            <% } else if (data.cat === 'chats') { %>
+              <select id="chat" name="undertype" class="field-select select-chats undetype field-chats full">
+                <option value="<%= data.undercat %>"><%= data.undercat %></option>
+                <option value="Abyssin" >Abyssin</option>
+                <option value="American Bobtail" >American Bobtail</option>
+                <option value="American Curl" >American Curl</option>
+                <option value="American Shorthair" >American Shorthair</option>
+                <option value="American Wirehair" >American Wirehair</option>
+                <option value="Angora turc" >Angora turc</option>
+                <option value="Balinais" >Balinais</option>
+                <option value="Bengal" >Bengal</option>
+                <option value="Birman" >Birman</option>
+                <option value="Bleu russe" >Bleu russe</option>
+                <option value="Bombay" >Bombay</option>
+                <option value="British Longhair" >British Longhair</option>
+                <option value="British Shorthair" >British Shorthair</option>
+                <option value="Burmese" >Burmese</option>
+                <option value="Burmilla" >Burmilla</option>
+                <option value="California Spangled" >California Spangled</option>
+                <option value="Californian Rex" >Californian Rex</option>
+                <option value="Ceylan" >Ceylan</option>
+                <option value="Chartreux" >Chartreux</option>
+                <option value="Chausie" >Chausie</option>
+                <option value="Chinchilla" >Chinchilla</option>
+                <option value="Cornish Rex" >Cornish Rex</option>
+                <option value="Cymric" >Cymric</option>
+                <option value="Devon Rex" >Devon Rex</option>
+                <option value="Donskoy" >Donskoy</option>
+                <option value="Européen" >Européen</option>
+                <option value="Exotic" >Exotic</option>
+                <option value="German Rex" >German Rex</option>
+                <option value="Gouttière" >Gouttière</option>
+                <option value="Havana Brown" >Havana Brown</option>
+                <option value="Highland Straight" >Highland Straight</option>
+                <option value="Himalayen" >Himalayen</option>
+                <option value="Japanese Bobtail" >Japanese Bobtail</option>
+                <option value="Javanais" >Javanais</option>
+                <option value="Khao Manee" >Khao Manee</option>
+                <option value="Korat" >Korat</option>
+                <option value="LaPerm" >LaPerm</option>
+                <option value="Maine Coon" >Maine Coon</option>
+                <option value="Manx" >Manx</option>
+                <option value="Mau Egyptien" >Mau Egyptien</option>
+                <option value="Munchkin" >Munchkin</option>
+                <option value="Nebelung" >Nebelung</option>
+                <option value="Norvégien" >Norvégien</option>
+                <option value="oOcicat" >Ocicat</option>
+                <option value="Oriental" >Oriental</option>
+                <option value="Persan" >Persan</option>
+                <option value="Peterbald" >Peterbald</option>
+                <option value="Pixiebob" >Pixiebob</option>
+                <option value="Ragamuffin" >Ragamuffin</option>
+                <option value="Ragdoll" >Ragdoll</option>
+                <option value="Safari" >Safari</option>
+                <option value="Savannah" >Savannah</option>
+                <option value="Scottish Fold" >Scottish Fold</option>
+                <option value="Scottish Fold à poil long" >Scottish Fold à poil long</option>
+                <option value="Selkirk Rex" >Selkirk Rex</option>
+                <option value="Siamois9" >Siamois</option>
+                <option value="Sibérien" >Sibérien</option>
+                <option value="Singapura" >Singapura</option>
+                <option value="Snowshoe" >Snowshoe</option>
+                <option value="Sokoke" >Sokoke</option>
+                <option value="Somali" >Somali</option>
+                <option value="Sphynx" >Sphynx</option>
+                <option value="Thaï" >Thaï</option>
+                <option value="Tiffany" >Tiffany</option>
+                <option value="Tonkinois" >Tonkinois</option>
+                <option value="Toyger" >Toyger</option>
+                <option value="Turkish Van" >Turkish Van</option>
+                <option value="York Chocolat" >York Chocolat</option>
+              </select>
+            <% } else if (data.cat === 'reptiles') { %>
+              <select id="reptiles" name="undertype" class="field-select select-reptiles undetype field-reptiles full">
+                <option value="<%= data.undercat %>"><%= data.undercat %></option>
+                <option value="Agame">Agame</option>
+                <option value="Caméléon">Caméléon</option>
+                <option value="Coléoptère">Coléoptère</option>
+                <option value="Crapeau">Crapeau</option>
+                <option value="Geckos">Geckos</option>
+                <option value="Grenouille">Grenouille</option>
+                <option value="Iguane">Iguane</option>
+                <option value="Phasme">Phasme</option>
+                <option value="Mante">Mante</option>
+                <option value="Lézard">Lézard</option>
+                <option value="Salamandre">Salamandre</option>
+                <option value="Serpent">Serpent</option>
+                <option value="Scinque">Scinque</option>
+                <option value="Tortue">Tortue</option>
+                <option value="Triton">Triton</option>
+                <option value="Varan">Varan</option>
+              </select>
+              <% } %>
+            </div>
+          </div>
+
+          <div class="row mg-top-10">
+            <div class="col-xs-4">
+              <p>Titre de l'annonce *</p>
+            </div>
+            <div class="col-xs-8">
+              <input value="<%= data.title %>" name="titre" class="field field-titre" data-title="titre de l'annonce" placeholder="Ex: Portée de trois chihuahuas" data-validation-length="min5" data-validation="length required" type="text">
+            </div>
+          </div>
+
+          <div class="row mg-top-10 field-portee">
+            <div class="col-xs-4">
+              <p>Nombre de petits dans la portée *</p>
+            </div>
+            <div class="col-xs-8">
+              <% var portee = (data.details && data.details.portee ? data.details.portee : 0) %>
+              <select id="child" name="portee" class="field-select full field-portee">
+                <option value="<%= portee%>"><%= portee %></option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row mg-top-10">
+            <div class="col-xs-4">
+              <p>Votre texte *</p>
+              <img src="/img/background/favoris.jpg" class="img-responsive mg-top-60" alt="Voir mes favoris" style="margin-bottom: -45px"/>
+            </div>
+            <div class="col-xs-8">
+              <textarea name="description" id="detail" cols="100" rows="8" class="field-area field-description" style="height: 400px" maxlength="4000"
+                data-title="description l'annonce" data-validation-length="min25" data-validation="required length"><%= data.text%></textarea>
+            </div>
+          </div>
+          <div class="row mg-top-10">
+            <div class="col-xs-4">
+              <p>Prix *</p>
+            </div>
+            <div class="col-xs-8">
+              <input type="text" value="<%= data.price %>" name="prix" class="field field-titre" data-title="price"
+                 placeholder="Ex: Don, 500€" data-validation-length="min2" data-validation="length required"/>
+            </div>
+          </div>
+        </div>
+
+        <%- partial ('../partial/bloc-cgu.ejs') %>
+
+      </div>
+    </div>
+
+    <div class="container mg-top-40 mg-bottom-30 bg-white bloc-padding-small">
+      <div class="row">
+        <div class="col-xs-12">
+          <h3 class="ttl-h3 bd-grey txt-up">Photos de l'annonce</h3>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-4">
+          <input name="list" value="" type="hidden" id="list-values"/>
+          <p>Télécharger vos photos *</p>
+          <p class="txt-i txt-12">* minimum deux photos requises</p>
+        </div>
+        <div class="col-xs-8 mg-bottom-20">
+          <p class="btn btn-success fileinput-button mg-bottom-20">Cliquez ici
+            <input name="images" class="btn btn-success fileinput-button" id="fileupload" type="file"/>
+          </p>
+          <div id="progress" class="progress hidden">
+            <div class="progress-bar progress-bar-success"></div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="files col-xs-12 mg-bottom-20 image_preview" id="files">
+          <% if (data.images) { for (var k in data.images) { %>
+          <div class="col-xs-12 col-sm-4 bloc-banner mg-bottom-20" id="<%= k %>">
+            <div class="row">
+              <div class="pursuit-imgContainer43 mg-bottom-10">
+                <a class="action-close btn-close sprite-before close" title="Supprimer la bannière" data-id="<%= k %>"></a>
+                <img src="<%= data.images[k] %>"
+                     alt="<%= data.title || 'Annonce' %>"
+                     class="img-responsive example-image"/>
+              </div>
+            </div>
+          </div>
+          <% }}; %>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mg-top-10 bg-white bloc-padding-small">
+      <div class="row">
+        <div class="col-xs-12">
+          <h3 class="ttl-h3 bd-grey txt-up">Ajouter une vidéo youtube</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">
+          <img src="/img/YouTube-logo-full_color.png" class="img-responsive" alt="Ajouter une vidéo youtube"/>
+        </div>
+        <div class="col-xs-8">
+          <p class="txt-16 mg-top-20 mg-bottom-20">Vous voulez intégrer une vidéo de votre animal ?</p>
+          <input type="text" value="<%= data.details.youtube || '' %>" name="youtube" class="field field-youtube" data-title="lien youtube"
+                 placeholder="Ex: https://youtu.be/Bm1Yka96fU8"/>
+          <div class="col-xs-12">
+            <p class="mg-top-20">1. Sur youtube, sous votre vidéo, cliquez sur le bouton " <span class="txt-grey">partager</span> " :</p>
+            <p><img src="/img/youtube-partager.png" alt="Comment partager une vidéo youtube" class="pd-left-40"/></p>
+            <p>2. Copiez le lien, tel que " <span class="txt-grey">https://youtu.be/Bm1Yka96fU8</span> "</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mg-top-40 mg-bottom-150 bg-white bloc-padding-small">
+      <div class="row">
+        <div class="col-xs-12 col-sm-5 col-sm-offset-1">
+          <h3 class="ttl-h3 bd-grey txt-up mg-top-40">Enregistrer vos modifications <span class="txt-grey">*</span></h3>
+          <p>* Votre modification va être soumise à la team babies-pets, et appairaitra en ligne d'ici 24h.</p>
+          <input id="publish_button" class="btn mg-top-30" name="publish" value="Publier l'annnonce" type="submit"/>
+        </div>
+        <div class="col-xs-12 col-sm-5">
+          <img class="img-responsive" alt="Authentifiez-vous sur babies-pets pour poster vos annonces" src="/img/background/lapinou.jpg"/>
+        </div>
+      </div>
+    </div>
+  </form>
+  <%- partial ('../layout/footer.ejs') %>
+  <link rel="stylesheet" href="/styles/trumbowyg.min.css"/><link rel="stylesheet" href="/styles/jquery.Jcrop.css"/>

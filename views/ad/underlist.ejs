@@ -1,0 +1,216 @@
+<%- partial ('../layout/header.ejs') %>
+<div class="container home-container">
+  <div class="bloc-accueil">
+    <form>
+      <p class="txt-search">Vous cherchez</p>
+      <label class="label">
+        <select id="type" name="type" class="field-select">
+            <option value="all">Tous</option>
+            <option value="chien">Chiens</option>
+            <option value="chats">Chats</option>
+            <option value="rongeurs">Rongeurs</option>
+            <option value="oiseaux">Oiseaux</option>
+            <option value="Reptiles">Reptiles</option>
+        </select>
+      </label>
+      <label class="label">
+        <select id="localisation" name="localisation" class="field-select">
+          <option value="0">Toute la France</option>
+          <option value="1">Auvergne-Rhône-Alpes</option>
+          <option value="2">Bourgogne Franche-Comté</option>
+          <option value="3">Bretagne</option>
+          <option value="4">Centre-Val de Loire</option>
+          <option value="5">Corse</option>
+          <option value="6">Grand-Est</option>
+          <option value="7">Hauts-de-France</option>
+          <option value="8">Île-de-France</option>
+          <option value="9">Provence-Alpes-Côte d'Azur</option>
+          <option value="10">Pays-de-la-Loire</option>
+          <option value="11">Normandie</option>
+          <option value="12">Nouvelle-Aquitaine</option>
+          <option value="13">Occitanie</option>
+        </select>
+      </label>
+      <a href="#" title="Déposer votre petite annonce" class="btn">Valider</a>
+    </form>
+  </div>
+</div>
+
+<div class="row bloc-home-push-annonce" id="beforemap">
+  <div class="container-fluid bg-bleu">
+    <div class="container bloc-depose-annonce">
+      <div class="row">
+        <div class="col-xs-12 col-sm-7">
+          <h2 class="mg-bottom-40 mg-top-40 txt-white">Déposer votre annonce dès maintenant !</h2>
+        </div>
+        <div class="col-xs-12 col-sm-3 col-sm-offset-1 col-xs-offset-0">
+          <a href="/ajouter-une-annonce" title="Déposer votre petite annonce" class="btn">publiez</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid bloc-gglmaps">
+  <div class="row relative">
+    <div class="row bloc-geo" id="map" data-size="2"></div>
+    <div class="btns-for-geo">
+      <p class="txt-info">Voir les favoris sur la carte google maps</p>
+      <a href="#" title="agrandir la carte google maps" class="btn action-more"><span class="sprite btn-more"></span></a>
+      <a href="#" title="diminuer la carte google maps" class="btn action-less"><span class="sprite btn-less"></span></a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2 class="mg-bottom-40 mg-top-40">Les dernières annonces</h2>
+    </div>
+  </div>
+
+<div class="row mg-bottom-20 bloc-annonce bloc-chien" data-name="Chien / levrier" data-lat="48.9089172" data-long="2.4577962" id="155153">
+    <div class="col-xs-12 col-sm-5">
+      <img src="/img/upload/chien.jpg" class="img-responsive mg-bottom-20" alt="Annonce chien"/>
+      <a href="#" class="btn-more-pictures sprite-before" title="Voir plus de photos"></a>
+    </div>
+    <div class="col-xs-12 col-sm-7">
+      <p style="text-align: right; font-size: 12px; margin-bottom: 0px;">15/01/1984<br>Ile de france</p>
+        <p style="font-size: 20px;"><span class="txt-bold">Espèce / Race :</span> Chèvre / chèvre naine</p>
+        <p style="font-size: 15px; text-align: justify;">superbes chiots LOF,puces,vaccinés,nés le 10/08/2016 ,7 mâles et 1 femelle réservée,mère 250269802217552, chiots très équilibrés,excellents chien de famille,très gentils avec les enfants tout en étant de très bons gardiens.Sables ou fauves charbonnés,très jolies boules de poils qui ne demandent que de l'amour.
+        <a href="#" style="color: rgb(82, 112, 132); font-weight: bold; padding-left: 10px; font-size: 14px;">En savoir plus</a>
+        </p>
+        <div class="row">
+          <div class="col-xs-7">
+            <p style="font-size: 20px; margin-top: 17px"><span class="txt-bold">Tarif :</span> 200€</p>
+          </div>
+        </div>
+    </div>
+  </div>
+
+<div class="row mg-bottom-20 bloc-annonce bloc-chat" data-name="Chien / levrier" data-lat="48.8735224" data-long="2.4228774" id="155154">
+    <div class="col-xs-12 col-sm-5">
+        <img src="/img/upload/chaton.jpg" class="img-responsive mg-bottom-20" alt="Annonce chien"/>
+        <a href="#" class="btn-more-pictures sprite-before" title="Voir plus de photos"></a>
+    </div>
+    <div class="col-xs-12 col-sm-7">
+      <p style="text-align: right; font-size: 12px; margin-bottom: 0px;">15/01/1984<br>Ile de france</p>
+        <p style="font-size: 20px;"><span class="txt-bold">Espèce / Race :</span> Chèvre / chèvre naine</p>
+        <p style="font-size: 15px; text-align: justify;">superbes chiots LOF,puces,vaccinés,nés le 10/08/2016 ,7 mâles et 1 femelle réservée,mère 250269802217552, chiots très équilibrés,excellents chien de famille,très gentils avec les enfants tout en étant de très bons gardiens.Sables ou fauves charbonnés,très jolies boules de poils qui ne demandent que de l'amour.
+        <a href="#" style="color: rgb(82, 112, 132); font-weight: bold; padding-left: 10px; font-size: 14px;">En savoir plus</a>
+        </p>
+        <div class="row">
+          <div class="col-xs-7">
+            <p style="font-size: 20px; margin-top: 17px"><span class="txt-bold">Tarif :</span> 200€</p>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="row mg-bottom-20 bloc-annonce bloc-chat" data-name="Chien / levrier" data-lat="48.820443" data-long="2.4507942" id="155155">
+    <div class="col-xs-12 col-sm-5">
+        <img src="/img/upload/chaton2.jpg" class="img-responsive mg-bottom-20" alt="Annonce chien"/>
+        <a href="#" class="btn-more-pictures sprite-before" title="Voir plus de photos"></a>
+    </div>
+    <div class="col-xs-12 col-sm-7">
+      <p style="text-align: right; font-size: 12px; margin-bottom: 0px;">15/01/1984<br>Ile de france</p>
+        <p style="font-size: 20px;"><span class="txt-bold">Espèce / Race :</span> Chèvre / chèvre naine</p>
+        <p style="font-size: 15px; text-align: justify;">superbes chiots LOF,puces,vaccinés,nés le 10/08/2016 ,7 mâles et 1 femelle réservée,mère 250269802217552, chiots très équilibrés,excellents chien de famille,très gentils avec les enfants tout en étant de très bons gardiens.Sables ou fauves charbonnés,très jolies boules de poils qui ne demandent que de l'amour.
+        <a href="#" style="color: rgb(82, 112, 132); font-weight: bold; padding-left: 10px; font-size: 14px;">En savoir plus</a>
+        </p>
+        <div class="row">
+          <div class="col-xs-7">
+            <p style="font-size: 20px; margin-top: 17px"><span class="txt-bold">Tarif :</span> 200€</p>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="row mg-bottom-20">
+    <div class="col-sm-7 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+      <div data-format="long" class="load-pub"></div>
+    </div>
+  </div>
+
+    <div class="row mg-bottom-20 bloc-annonce bloc-chat" data-name="Chèvre / chèvre naine" data-lat="48.863593" data-long="2.3594051" id="155156">
+      <div class="col-xs-12 col-sm-5">
+          <img src="/img/upload/chaton2.jpg" class="img-responsive mg-bottom-20" alt="Annonce chien"/>
+          <a href="#" class="btn-more-pictures sprite-before" title="Voir plus de photos"></a>
+      </div>
+      <div class="col-xs-12 col-sm-7">
+        <p style="text-align: right; font-size: 12px; margin-bottom: 0px;">15/01/1984<br>Ile de france</p>
+          <p style="font-size: 20px;"><span class="txt-bold">Espèce / Race :</span> Chèvre / chèvre naine</p>
+          <p style="font-size: 15px; text-align: justify;">superbes chiots LOF,puces,vaccinés,nés le 10/08/2016 ,7 mâles et 1 femelle réservée,mère 250269802217552, chiots très équilibrés,excellents chien de famille,très gentils avec les enfants tout en étant de très bons gardiens.Sables ou fauves charbonnés,très jolies boules de poils qui ne demandent que de l'amour.
+          <a href="#" style="color: rgb(82, 112, 132); font-weight: bold; padding-left: 10px; font-size: 14px;">En savoir plus</a>
+          </p>
+          <div class="row">
+            <div class="col-xs-7">
+              <p style="font-size: 20px; margin-top: 17px"><span class="txt-bold">Tarif :</span> 200€</p>
+            </div>
+          </div>
+      </div>
+    </div>
+
+
+</div>
+<div class="bloc-left-search">
+  <a href="#" title="Modifiez vos critères de recherche" class="btn-more-search-sidebar sprite-before">votre recherche</a>
+  <form class="form-search">
+    <label class="label">
+      <p class="container-cgu-small">
+         <input name="cgu" id="cgu" required="required" class="input-cgu" type="checkbox">
+         <label class="bloc-cgu bloc-cgu-small" for="cgu"></label>
+         Chiens
+       </p>
+    </label>
+    <label class="label">
+      <p class="container-cgu-small">
+         <input name="cgu" id="chats" required="required" class="input-cgu" type="checkbox">
+         <label class="bloc-cgu bloc-cgu-small" for="chats"></label>
+         Chats
+       </p>
+    </label>
+    <label class="label">
+      <p class="container-cgu-small">
+         <input name="cgu" id="rongeurs" required="required" class="input-cgu" type="checkbox">
+         <label class="bloc-cgu bloc-cgu-small" for="rongeurs"></label>
+         Rongeurs
+       </p>
+    </label>
+    <label class="label">
+      <p class="container-cgu-small">
+         <input name="cgu" id="oiseaux" required="required" class="input-cgu" type="checkbox">
+         <label class="bloc-cgu bloc-cgu-small" for="oiseaux"></label>
+         Oiseaux
+       </p>
+    </label>
+    <label class="label">
+      <p class="container-cgu-small">
+         <input name="cgu" id="reptiles" required="required" class="input-cgu" type="checkbox">
+         <label class="bloc-cgu bloc-cgu-small" for="reptiles"></label>
+         Reptiles
+       </p>
+    </label>
+    <a href="#" title="" class="btn">OK</a>
+  </form>
+</div>
+<%- partial ('../layout/footer.ejs') %>
+
+<script>
+(function(w,s,o,g,r,ms,m) {
+   w['BannerExchange'] = r;
+   w[r] = w[r] || function(){
+        (w[r].p = w[r].p || []).push(arguments)
+    };
+   w[r].date = 1*new Date();
+   ms = s.createElement(o);
+   m = s.getElementsByTagName(o)[0];
+   ms.async = 1;
+   ms.src = g;
+   m.parentNode.insertBefore(ms, m);
+ })
+ (window, document, 'script', '//www.echangebannieres.fr/js/banner/ban.js', 'banEx');
+ banEx('start');
+</script>
+
+<%- partial ('../popin/beta.ejs') %>

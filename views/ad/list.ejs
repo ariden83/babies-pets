@@ -1,0 +1,76 @@
+<%- partial ('../layout/header.ejs') %>
+
+<div class="row" style="margin-top: 95px; background-color: rgb(98, 160, 208);">&nbsp;</div>
+
+<%- partial ('../partial/bloc-gglmap.ejs') %>
+
+<div class="containe ">
+  <%- partial ('../partial/bloc-newsletter.ejs') %>
+  <div id="mes-favoris"></div>
+
+  <div class="allnews mg-bottom-60" data-type="<%= type%>" data-page="1">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2 class="mg-bottom-20 ttl-h2 mg-top-30">Les dernières annonces pour les <%= type%></h2>
+    </div>
+  </div>
+<% var j = 0;
+if (data.length) {
+  data.forEach(e => { j++;
+if (j === 4) {
+j = 0;
+%>
+    <div class="row mg-bottom-20">
+      <div class="col-sm-7 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+        <div data-format="long" class="load-pub"></div>
+      </div>
+    </div>
+<% } %>
+  <%- partial('../partial/bloc-long-annonce.ejs', {data: e}) %>
+<% });
+}
+if (!data.length || data.length < 5) { %>
+  <div class="row mg-bottom-20">
+    <div class="col-sm-7 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+      <div data-format="long" class="load-pub"></div>
+    </div>
+  </div>
+<% } %>
+  </div>
+</div>
+<%- partial('../partial/bloc-left-search.ejs', {type: type}) %>
+<%- partial ('../layout/footer.ejs') %>
+<%- partial ('../popin/beta.ejs') %>
+<% var json = {
+  "@context": "http://schema.org",
+  "url": "http://www.babies-pets.fr",
+  "sameAs": [
+    "https://www.facebook.com/teamBabiesPets/"
+  ],
+  "name": "Babies-pets",
+  "alternateName": "Babies-pets, site d'annonces pour animaux",
+  "url": "http://www.babies-pets.fr",
+
+
+  "@type": "ItemList",
+  "itemListElement": [],
+  "url": 'http://www.babies-pets.fr/annonces/' + type,
+};
+var k = 0;
+if (data.length) {
+  data.forEach(e => { k++;
+  json.itemListElement.push({
+    "@type": "ListItem",
+    "position": k,
+    "image": e.image,
+    "description": e.description,
+    "@id": 'http://www.babies-pets.fr' + e.url,
+    "name": e.title || '',
+    "url": 'http://www.babies-pets.fr' + e.url,
+  });
+});
+}
+%>
+<script type="application/ld+json">
+<%- JSON.stringify(json) %>
+</script>

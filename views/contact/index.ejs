@@ -1,0 +1,64 @@
+<%- partial ('../layout/header.ejs') %>
+</div>
+<div class="container-fluid bg-cat">
+  <div class="container mg-bottom-40">
+    <div class="row">
+    <div class="col-xs-12 col-sm-8 bg-white bloc-inscription">
+      <div class="row">
+        <div class="col-xs-12">
+          <h2 class="ttl-h2 bd-grey mg-bottom-30">Contacter la team babies-pets</h2>
+          <p class="txt-24 mg-bottom-40">Vous voulez contacter l'équipe, signaler un bug, faire des suggestions ou proposer un partenariat ?</p>
+        </div>
+      </div>
+      <form class="txt-20 form-contact has-validation-callback" method="post" id="contactsend" enctype="multipart/form-data">
+      <div class="row">
+          <div class="col-xs-12">
+            <input type="email" placeholder="Votre email" name="email" id="email" class="field" data-validation="length required" data-validation-length="min4"/>
+          </div>
+      </div>
+      <div class="row mg-top-10 mg-bottom-40">
+          <div class="col-xs-12">
+            <input type="text" placeholder="Votre nom et prénom" name="name" id="name" class="field" data-validation="length required" data-validation-length="min4"/>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-xs-12">
+              <input type="text" placeholder="Titre du message" name="subject" id="subject" class="field" data-validation="length required" data-validation-length="min4"/>
+          </div>
+      </div>
+      <div class="row mg-top-10">
+          <div class="col-xs-12">
+              <textarea id="description" name="message" placeholder="Votre message" class="field-area" data-validation="length required" data-validation-length="min10"></textarea>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-xs-8">
+            <input type="submit" value="Envoyer" class="btn" id="button_connexion"/>
+          </div>
+      </div>
+      </form>
+    </div>
+    <div class="col-xs-12 col-sm-4 pd-xs-0">
+      <div class="col-xs-12 bg-white">
+        <div class="row txt-center bloc-insc-facebook mg-top-20">
+          <div class="fb-page" data-href="https://www.facebook.com/teamBabiesPets/" data-tabs="timeline" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="false">
+            <blockquote cite="https://www.facebook.com/teamBabiesPets/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/teamBabiesPets/">Babies-pets</a></blockquote>
+          </div>
+          <a href="https://www.facebook.com/teamBabiesPets/" title="Retrouvez-nous sur facebook" class="txt-orange mg-bottom-20" target="_blank" rel="nofollow" style="position: absolute; right: 20px; font-size: 16px; bottom: 13px;">
+            <span class="txt-20 txt-cursive">&gt;</span> Retrouvez-nous sur facebook
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+<%- partial ('../partial/pub-bottom.ejs') %>
+<%- partial ('../layout/footer.ejs') %>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.8&appId=1593127587631657";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>

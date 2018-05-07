@@ -1,0 +1,245 @@
+{
+  "swagger": "2.0",
+  "host": "www.babies-pets.fr",
+  "basePath": "/api/",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/messages": {
+      "get": {
+        "tags": [
+          "Gestion des messages"
+        ],
+        "summary": "Récupèration de vos messages sur babies-pets.fr",
+        "description": "Récupère tous les messages que vous avez reçus sur le site babies-pets.fr",
+        "operationId": "getMessages",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "login",
+            "example": "elevage-du-chihuahua",
+            "description": "votre login pour vous connecter à votre compte",
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "key",
+            "example": "99ezf56ez4f9ze4f9ze4fze5fze5fzefze8f",
+            "description": "la clé pour vous connecter à votre compte",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retourne la liste de vos messages reçus",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/Messages"
+            }
+          },
+          "401": {
+            "description": "Token invalide"
+          },
+          "412": {
+            "description": "Les paramètres transmis sont invalides"
+          },
+          "417": {
+            "description": "Le token a expiré"
+          }
+        }
+      }
+    },
+    "/message/{id}": {
+      "get": {
+        "tags": [
+          "Gestion des messages"
+        ],
+        "summary": "Récupération d'un message avec son Id",
+        "description": "Récupérez un message reçu sur le site babies-pets.fr",
+        "operationId": "getMessageById",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID de l'annonce à modifier",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "login",
+            "example": "elevage-du-chihuahua",
+            "description": "votre login pour vous connecter à votre compte",
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "key",
+            "example": "99ezf56ez4f9ze4f9ze4fze5fze5fzefze8f",
+            "description": "la clé pour vous connecter à votre compte",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retourne la liste de vos annonces déjà créées",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/Messages"
+            }
+          },
+          "404": {
+            "description": "Identifiant d'annonce non trouvé"
+          },
+          "401": {
+            "description": "Token invalide"
+          },
+          "412": {
+            "description": "Les paramètres transmis sont invalides"
+          },
+          "417": {
+            "description": "Le token a expiré"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Gestion des messages"
+        ],
+        "summary": "Répondre à un un message",
+        "description": "Répondre à un message reçus sur le site babies-pets.fr",
+        "operationId": "postMessage",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID de l'annonce à modifier",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "login",
+            "example": "elevage-du-chihuahua",
+            "description": "votre login pour vous connecter à votre compte",
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "key",
+            "example": "99ezf56ez4f9ze4f9ze4fze5fze5fzefze8f",
+            "description": "la clé pour vous connecter à votre compte",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retourne la liste de vos annonces déjà créées",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/Messages"
+            }
+          },
+          "404": {
+            "description": "Identifiant d'annonce non trouvé"
+          },
+          "401": {
+            "description": "Token invalide"
+          },
+          "412": {
+            "description": "Les paramètres transmis sont invalides"
+          },
+          "417": {
+            "description": "Le token a expiré"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Order": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "petId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "quantity": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "shipDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "status": {
+          "type": "string",
+          "description": "Order Status",
+          "enum": [
+            "placed",
+            "approved",
+            "delivered"
+          ]
+        },
+        "complete": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "xml": {
+        "name": "Order"
+      }
+    },
+    "Messages": {
+      "type": "object",
+      "required": [
+        "description"
+      ],
+      "properties": {
+        "description": {
+          "type": "string",
+          "example": "Portée de deux chihuahuas",
+          "decription": "titre de l'annonce"
+        }
+      }
+    },
+    "ApiResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "type": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+<%= title %>\n
+ \n
+Retrouvez les dernières annonces créées sur http://www.babies-pets.fr\n
+ \n
+<% if (ads && ads.length) {
+ads.forEach(data => { %>
+  <%= data.title %>\n
+\n
+  <%- data.description %>
+\n
+  <%= domain + data.url %>
+<% });
+} %>
+  \n
+A bientôt sur Babies-pets.fr, site de petites annonces pour animaux.\n'
+ \n
+La team Babies-pets \n

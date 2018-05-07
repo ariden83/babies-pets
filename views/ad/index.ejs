@@ -1,0 +1,180 @@
+<%- partial ('../layout/header.ejs') %>
+</div>
+<div class="container-fluid">
+  <div class="container mg-bottom-40 mg-top-115" itemscope itemtype="http://schema.org/Product">
+    <div class="row">
+
+      <%- partial('../partial/bloc-galery.ejs') %>
+
+      <div class="col-xs-12 col-sm-8">
+        <div class="row bg-white bloc-inscription">
+          <div class="col-xs-12 col-sm-9">
+            <p class="txt-20 txt-race">
+              <span class="txt-bold">Espèce / Race :</span> <a href="/annonces/<%= data.cat %>" title="<%= data.cat %>"><%= data.cat.charAt(0).toUpperCase() + data.cat.slice(1) %></a> / <%= data.undercat.charAt(0).toUpperCase() + data.undercat.slice(1) %>
+            </p>
+          </div>
+          <div class="col-xs-12 col-sm-3">
+            <p class="float-right no-xs-float"><span class="txt-date"><%= data.date %><br/><%= data.details.departement || '' %></span></p>
+            <a href="#" title="Ajouter au favoris" class="sprite btn-favoris" id="fav-<%= data.ad_id %>" data-id="<%= data.ad_id %>"></a>
+          </div>
+          <div class="col-xs-12 bd-grey">
+            <h2 class="ttl-h3" itemprop="name"><%- data.title + (data.vendu ? ' <span class="txt-grey txt-14 txt-bold">( annonce cloturée )</span>' : '') %></h2>
+            <p itemprop="description"><%- data.text || data.title || 'Annonce'%></p>
+            <p class="txt-20 mg-top-20 mg-bottom-40" itemprop="offers" itemscope itemtype="http://schema.org/Offer"><span class="txt-bold">Tarif :</span> <span itemprop="price"><%= data.price %></span> <span itemprop="priceCurrency">€</span></p>
+          </div>
+          <% if (!data.vendu) { %>
+          <div class="col-xs-12 mg-top-20">
+            <a href="#" title="Partager l'annonce" class="txt-18 txt-grey btns-annonces btn-share"><span class="picto-share sprite-before"></span>Partager</a>
+            <a href="#" title="Localiser le vendeur" class="txt-18 txt-grey btns-annonces active btn-localisation"><span class="picto-localisation sprite-before"></span>Localiser</a>
+            <a href="#" title="Contacter le vendeur" class="txt-18 txt-grey btns-annonces btn-write"><span class="picto-write sprite-before"></span>Contacter</a>
+            <% if (data.phone) { %>
+            <a href="tel:<%- data.phone %>" title="Téléphoner au vendeur" class="txt-18 txt-grey btns-annonces btn-phone"><span class="picto-phone sprite-before"></span>Téléphoner</a>
+            <% } %>
+            <a href="#" class="btn-signal action-signaler sprite-before" title="Signaler l'annonce" data-id="<%= data.ad_id %>">Signaler l'annonce</a>
+          </div>
+          <% } %>
+        </div>
+
+        <div class="row bg-white mg-top-30 bloc-share-social bloc-annonces bloc-padding-small <%- data.vendu ? 'active' : 'hidden' %>">
+          <div class="col-xs-12">
+            <h3 class="ttl-h3">Partager l'annonce</h3>
+            <%- partial ('../partial/bloc-share.ejs', {
+              imgShare: (data.images ? encodeURI('https://www.babies-pets.fr' + data.images[Object.keys(data.images)[0]]) : ''),
+              urlShare: encodeURI('https://www.babies-pets.fr' + data.url),
+              titleShare:  encodeURI(title),
+              descriptionShare: encodeURI(description)}) %>
+          </div>
+        </div>
+        <% if (!data.vendu) { %>
+        <%- partial ('../partial/bloc-message.ejs', {id: data.ad_id}) %>
+
+        <div class="row bg-white bloc-localisation mg-top-20 box-shadow">
+          <div class="col-xs-12">
+            <div class="row bloc-localisation" id="map" data-size="2" data-lat="<%= data.lat || '' %>" data-long="<%= data.long || '' %>"></div>
+          </div>
+        </div>
+        <% } %>
+
+        <div class="row mg-top-20">
+          <div class="col-xs-12">
+            <div data-format="long" class="load-pub"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-4">
+        <div class=" bg-white bloc-padding-small">
+          <div class="row">
+            <h3 class="ttl-h3">Profil du proprietaire</h3>
+            <div class="mg-bottom-20 col-xs-12">
+              <img src="<%= user.avatar || '/img/avatar.gif' %>" alt="Avatar de <%= user.pseudo%>" class="img-responsive bd-blue"/>
+            </div>
+
+            <div class="row txt-18">
+              <div class="col-xs-12">
+                <p class="txt-20 mg-bottom-20"><%- (user.confirmed ? '<span class="sprite picto-star active"></span><span class="txt-gold">Profil certifié</span>' : '<span class="sprite picto-star"></span><i class="txt-grey">Profil non certifié</i>') %></p>
+              </div>
+            </div>
+
+            <div class="row txt-16">
+              <div class="col-xs-5">
+                <p>Pseudo :</p>
+              </div>
+              <div class="col-xs-7">
+                <p><%= user.pseudo%></p>
+              </div>
+            </div>
+
+            <div class="row txt-16">
+              <div class="col-xs-5">
+                <p>Type :</p>
+              </div>
+              <div class="col-xs-7">
+                <% if (user.professional) { %>
+                <p><%= 'Professionnel' %></p>
+                <p>Siren: <%= user.details.siren || '' %></p>
+                <% } else { %>
+                <p><%= 'Particulier' %></p>
+                <% } %>
+              </div>
+            </div>
+
+            <div class="row txt-16">
+              <div class="col-xs-5">
+                <p>Description :</p>
+              </div>
+              <div class="col-xs-7">
+                <p><%- (user.details.description || '<i>Non renseigné</i>') %></p>
+              </div>
+            </div>
+
+            <div class="row txt-16">
+              <div class="col-xs-5">
+                <p>Téléphone :</p>
+              </div>
+              <div class="col-xs-7">
+                <p><%- (user.phone || null) %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class=" bg-white bloc-padding-small mg-top-20">
+          <p class="txt-bold txt-orange txt-18">Vendre et acheter en toute sécurité</p>
+            <p class="mg-bottom-20 picto-patte sprite-before">Ne donnez jamais votre login et votre mot de passe</p>
+            <p class="mg-bottom-20 picto-patte sprite-before">N'avancez pas d'argent</p>
+          <a href="/securite-conseils" target="_blank" title="Vous voulez plus de conseils pour vendre et acheter en sécurité" class="txt-18 txt-orange"><span class="txt-20 txt-cursive">&gt;</span> Vous voulez des conseils ?</a>
+          <img src="/img/logo-dod.jpg" class="img-responsive mg-top-10 hidden-xs" alt="Babies-pets, site de petites annonces pour les animaux"/>
+        </div>
+
+        <div class="col-xs-12 mg-top-20">
+          <div data-format="carre" class="load-pub"></div>
+        </div>
+      </div>
+
+    </div>
+    <% if (ads.length) { %>
+    <div class="row bloc-welcome-ad mg-top-20">
+      <div class="col-xs-12">
+        <h3 class="ttl-h2 mg-top-20">Dernières annonces</h3>
+      </div>
+      <% ads.forEach(e => { %>
+        <%- partial('../partial/bloc-annonce.ejs', {data: e, mine: false}) %>
+      <% }); %>
+      <div class="col-xs-12">
+        <a href="/" title="Retrouvez toutes les annonces d'animaux" class="txt-18 float-right mg-bottom-20">
+          <span class="txt-20 txt-cursive">&gt;</span> Retrouvez toutes les annonces
+        </a>
+      </div>
+    </div>
+    <% } %>
+  </div>
+
+<%- partial ('../partial/pub-bottom.ejs') %>
+<%- partial ('../layout/footer.ejs') %>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org/",
+  "@type": "Product",
+  "name": "<%= data.title %>",
+  "image": "<%= data.image %>",
+  "description": "<%= data.description %>",
+  "mpn": "<%= data.ad_id %>",
+  "brand": {
+    "@type": "Thing",
+    "name": "Babies-pets"
+  },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "EUR",
+    "price": "<%= data.price %>",
+    "priceValidUntil": "<%= data.endAt || data.createdAt %>",
+    "itemCondition": "http://schema.org/UsedCondition",
+    "availability": "http://schema.org/InStock",
+    "seller": {
+      "@type": "Organization",
+      "name": "<%= user.pseudo%>"
+    }
+  }
+}
+</script>

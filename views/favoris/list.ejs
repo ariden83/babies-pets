@@ -1,0 +1,21 @@
+<% var j = 0;
+if (favoris && favoris.length) { %>
+<div class="row">
+  <div class="col-xs-12">
+    <h2 class="mg-bottom-20 mg-top-40 ttl-h2">Vous les avez mis en favoris !</h2>
+  </div>
+</div>
+<% favoris.forEach(e => { j++;
+if (j === 5) {
+  j = 0;
+%>
+<div class="row mg-bottom-20">
+  <div class="col-sm-7 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+    <div data-format="long" class="load-pub"></div>
+  </div>
+</div>
+<% } %>
+  <%- partial('../partial/bloc-long-annonce.ejs', {data: e}) %>
+<% });
+} %>
+

@@ -1,0 +1,63 @@
+<%- partial ('../layout/header.ejs') %>
+
+<div class="row bloc-home-push-annonce" id="beforemap">
+  <div class="container-fluid bg-bleu">
+    <div class="container bloc-depose-annonce">
+      <div class="row">
+        <div class="col-xs-12 col-sm-7">
+          <h2 class="mg-bottom-40 mg-top-40 txt-white">Déposer votre annonce dès maintenant !</h2>
+        </div>
+        <div class="col-xs-12 col-sm-3 col-sm-offset-1 col-xs-offset-0">
+          <a href="/ajouter-une-annonce" title="Déposer votre petite annonce" class="btn">publiez</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid bloc-gglmaps">
+  <div class="row relative">
+    <div class="row bloc-geo" id="map" data-size="2"
+      <%- (user.details.lat ? 'data-lat="' + user.details.lat + '"' : '') %>
+      <%- (user.details.long ? 'data-long="' + user.details.long + '"' : '') %>
+    ></div>
+    <div class="btns-for-geo">
+      <p class="txt-info">Voir les favoris sur la carte google maps</p>
+      <a href="#" title="agrandir la carte google maps" class="btn action-more"><span class="sprite btn-more"></span></a>
+      <a href="#" title="diminuer la carte google maps" class="btn action-less"><span class="sprite btn-less"></span></a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2 class="mg-bottom-40 mg-top-40">Vous les avez mis en favoris !</h2>
+    </div>
+  </div>
+
+  <% var j = 0;
+  if (favoris && favoris.length) {
+    favoris.forEach(e => { j++;
+  if (j === 5) {
+    j = 0;
+  %>
+  <div class="row mg-bottom-20">
+    <div class="col-sm-7 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+      <div data-format="long" class="load-pub"></div>
+    </div>
+  </div>
+  <% } %>
+    <%- partial('../partial/bloc-long-annonce.ejs', {data: e}) %>
+  <% });
+  }
+  if (!favoris.length || favoris.length < 5) { %>
+  <div class="row mg-bottom-20">
+    <div class="col-sm-7 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+      <div data-format="long" class="load-pub"></div>
+    </div>
+  </div>
+  <% } %>
+</div>
+
+<%- partial ('../layout/footer.ejs') %>

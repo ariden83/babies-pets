@@ -1,0 +1,80 @@
+<%- partial ('../layout/header.ejs') %>
+</div>
+<div class="container-fluid bg-cat">
+  <div class="container mg-bottom-150 bg-white ">
+    <div class="row ">
+      <div class="col-xs-12">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="row pres-races">
+
+            <div class="bloc-accueil mg-bottom-40">
+              <form>
+                <label class="bloc-type">
+                  <select id="field-type" name="type" class="field-select">
+                    <option value="all">Tous</option>
+                    <option value="chiens" <%- (type === 'chiens' ? 'selected' : '') %>>Chiens</option>
+                    <option value="chats" <%- (type === 'chats' ? 'selected' : '') %>>Chats</option>
+                    <option value="rongeurs" <%- (type === 'rongeurs' ? 'selected' : '') %>>Rongeurs</option>
+                    <option value="oiseaux" <%- (type === 'oiseaux' ? 'selected' : '') %>>Oiseaux</option>
+                    <option value="reptiles" <%- (type === 'reptiles' ? 'selected' : '') %>>Reptiles</option>
+                  </select>
+                </label>
+                <label class="bloc-group">
+                  <select id="field-group" name="group" class="field-select">
+                    <option value="">Toutes les catégories</option>
+                    <option value="1">Berger et de Bouvier</option>
+                    <option value="2">Pinscher, Schnauzers, Molossoïdes, Montagne et Bouviers Suisses</option>
+                    <option value="3">Terriers</option>
+                    <option value="4">Teckels</option>
+                    <option value="5">Spitz et type Primitif</option>
+                    <option value="6">Chiens courants et de Recherche au Sang</option>
+                    <option value="7">Chiens d'arrêt</option>
+                    <option value="8">Leveurs de gibiers, rapporteurs et chiens d'eau</option>
+                    <option value="9">Chiens d'Agrément et de Compagnie</option>
+                    <option value="10">Lévriers</option>
+                  </select>
+                </label>
+                <label class="bloc-search">
+                  <input type="text" placeholder="Vous recherchez un ..." class="field-select field-input" name="search" id="especename"/>
+                </label>
+              </form>
+            </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row bg-bleu mg-bottom-30">
+          <div class="col-sm-7 col-xs-12">
+            <h2 class="txt-center txt-26 txt-white mg-top-30 mg-bottom-30">Vous ne trouvez pas une fiche ?</h2>
+          </div>
+          <div class="col-sm-3 col-xs-12">
+            <a title="Rédigez une fiche manquante" class="btn mg-top-25 btn-fiche-manquante" href="/especes/proposer-nouvelle-espece">rédigez-la</a>
+          </div>
+        </div>
+
+        <div class="row bloc-list-fiches mg-bottom-20" id="results" data-page="<%- page %>" data-type="<%- type %>">
+          <% if (page > 1) { %>
+          <div class="col-xs-12 txt-center mg-bottom-20">
+           <a href="?<% if (page > 2) { %>page=<%- (page - 1) %><% } %>" title="Afficher les fiches précédentes" class="btn btn-small">Afficher les fiches précédentes</a>
+          </div>
+          <% } %>
+          <%- partial('load.ejs') %>
+
+        </div>
+
+        <div class="row">
+        <% if (data.length === maxPerPage) { %>
+        <div class="col-xs-12 txt-center mg-bottom-20 action-next-btn">
+          <a href="?page=<%- (Number(page) + 1) %>" title="Afficher les fiches suivantes" class="btn btn-small action-next-fiches">Afficher les fiches suivantes</a>
+        </div>
+        <% } %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+<%- partial ('../layout/footer.ejs') %>
+
+<link rel="stylesheet" href="/styles/back/easy-autocomplete.min.css"/>

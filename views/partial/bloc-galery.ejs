@@ -1,0 +1,96 @@
+<% if (data.images) { %>
+<div class="col-xs-12 mg-bottom-20">
+  <div class="row">
+    <div class="col-xs-12 col-sm-7 mg-xs-bottom-10">
+      <div class="row">
+        <div class="bloc">
+          <% if (data.youtube) { %>
+          <div class="youtube" style="background-image: url('<%= data.image %>')">
+            <iframe width="683" height="511" src="<%= data.youtube %>?loop=1&modestbranding=0&showinfo=0&iv_load_policy=0&disablekb=1" frameborder="0" allowfullscreen style="max-width: 100%"></iframe>
+          </div>
+          <% } %>
+          <img src="<%= data.images[Object.keys(data.images)[0]] %>" itemprop="image" alt="<%= data.title || 'Annonce'%>" class="img-responsive grosplan <% if (data.youtube) { %>hidden<% } %>" style="width: 100%;"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-5">
+      <div class="row pd-bottom-20 pd-xs-bottom-0">
+        <% const nbr = Object.keys(data.images).length%>
+        <% if (nbr === 1) {
+          // do nothing
+        } else if (nbr <= 6) {
+          var i = 0;
+          for (var k in data.images) { i++;
+        %>
+        <div class="col-xs-6 col-sm-6">
+          <div class="row">
+            <div class="pursuit-imgContainer43 mg-bottom-10">
+              <a class="example-image-link"
+                 href="<%= data.images[k] %>"
+                 title="Agrandir l'image de l'annonce <%= data.title || 'Annonce' %>">
+                <img src="<%= data.images[k] %>"
+                     alt="<%= data.title || 'Annonce' %>" class="img-responsive example-image"/>
+              </a>
+            </div>
+          </div>
+        </div>
+        <% }
+        } else if (nbr === 7) {
+          var i = 0;
+          for (var k in data.images) { i++; %>
+        <div class="col-xs-6 <%= (i < 5 ? 'col-sm-6' : 'col-sm-4') %>">
+          <div class="row">
+            <div class="pursuit-imgContainer43 mg-bottom-10">
+              <a class="example-image-link"
+                 href="<%= data.images[k] %>"
+                 title="Agrandir l'image de l'annonce <%= data.title || 'Annonce' %>">
+                <img src="<%= data.images[k] %>" alt="<%= data.title || 'Annonce' %>" class="img-responsive"/>
+              </a>
+            </div>
+          </div>
+        </div>
+        <% }
+        } else if (nbr <= 9) {
+          var i = 0;
+          for (var k in data.images) {  i++; %>
+        <div class="col-xs-6 <%= (i === 4 ? 'col-sm-8' : 'col-sm-4') %>">
+          <div class="row">
+            <div class="pursuit-imgContainer43 mg-bottom-10">
+              <a class="example-image-link" href="<%= data.images[k] %>" title="Agrandir l'image de l'annonce <%= data.title || 'Annonce' %>">
+                <img src="<%= data.images[k] %>" alt="<%= data.title || 'Annonce' %>" class="img-responsive"/>
+              </a>
+            </div>
+          </div>
+        </div>
+        <% }
+        } else if (nbr <= 15) {
+          for (var k in data.images) { %>
+        <div class="col-xs-6 col-sm-4">
+          <div class="row">
+            <div class="pursuit-imgContainer43 mg-bottom-10">
+              <a class="example-image-link" href="<%= data.images[k] %>" title="Agrandir l'image de l'annonce <%= data.title || 'Annonce' %>">
+                <img src="<%= data.images[k] %>" alt="<%= data.title || 'Annonce' %>" class="img-responsive"/>
+              </a>
+            </div>
+          </div>
+        </div>
+        <% }
+        } else {
+          for (var k in data.images) { %>
+        <div class="col-xs-6 col-sm-3">
+          <div class="row">
+            <div class="pursuit-imgContainer43 mg-bottom-10">
+              <a class="example-image-link" href="<%= data.images[k] %>" title="Agrandir l'image de l'annonce <%= data.title || 'Annonce' %>">
+                <img src="<%= data.images[k] %>" alt="<%= data.title || 'Annonce' %>" class="img-responsive"/>
+              </a>
+            </div>
+          </div>
+        </div>
+        <% }
+        } %>
+      </div>
+    </div>
+  </div>
+</div>
+<% } %>
